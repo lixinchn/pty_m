@@ -38,7 +38,7 @@ export default {
 
     .i-t-anchor {
       font-family: 'Avenir Book';
-      font-size: 16px;
+      font-size: 14px;
       color: #fff;
       text-decoration: none;
     }
