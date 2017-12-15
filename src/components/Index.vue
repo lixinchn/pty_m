@@ -1,20 +1,20 @@
 <template>
   <div class="index">
-    <common-header></common-header>
+    <common-header position="fixed"></common-header>
     <index-body></index-body>
-    <common-tail></common-tail>
+    <common-sidebar></common-sidebar>
   </div>
 </template>
 
 <script>
   import CommonHeader from './common/CommonHeader'
   import IndexBody from './index/IndexBody'
-  import CommonTail from './common/CommonTail'
+  import CommonSidebar from './common/CommonSidebar'
 
 
   export default {
     name: 'index',
-    components: {CommonHeader, IndexBody, CommonTail},
+    components: {CommonHeader, IndexBody, CommonSidebar},
     data () {
       return {
       }
@@ -32,4 +32,8 @@
 </script>
 
 <style lang="scss" scoped>
+  .index {
+    width: 100%;
+    height: 100%;
+  }
 </style>

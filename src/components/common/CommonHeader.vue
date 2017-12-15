@@ -1,62 +1,79 @@
 <template>
-  <div class="h-container" :style="{width: width}">
-    <span class="v-m-helper"></span><img src="/static/img/logo.png" class="v-m-content h-logo" @click="onGoToIndex">
-    <span class="v-m-helper"></span><img src="/static/img/typany.png" class="v-m-content h-title" @click="onGoToIndex">
-    <router-link to="/android" class="link h-link" style="margin-right: 65px;">Android</router-link>
-    <router-link to="/ios" class="link h-link" style="margin-right: 54px;">iOS</router-link>
+  <div class="h-container" :style="{width: width, background: background, position: position}">
+    <img src="/static/img/common/logo.png" class="v-m-content h-logo" @click="onGoToIndex">
+    <img src="/static/img/common/typany.png" class="v-m-content h-title" @click="onGoToIndex">
+    <img src="/static/img/common/handle.png" class="h-handle" @click="onOpenSidebar">
   </div>
 </template>
 
 <script>
-export default {
-  name: 'CommonHeader',
-  props: {
-    width: {
-      type: String,
-      default: '100%',
-    }
-  },
-  data () {
-    return {
-    }
-  },
+  export default {
+    name: 'CommonHeader',
+    props: {
+      width: {
+        type: String,
+        default: '100%',
+      },
+      background: {
+        type: String,
+        default: 'rgba(0, 0, 0, 0)'
+      },
+      position: {
+        type: String,
+        default: 'relative',
+      }
+    },
+    data () {
+      return {
+      }
+    },
 
-  methods: {
-    onGoToIndex() {
-      this.$router.push({name: 'index'})
+    methods: {
+      onGoToIndex() {
+        this.$router.push({name: 'index'})
+      },
+
+      onOpenSidebar() {
+        this.$store.dispatch('COMMON_SetSidebarShow', true).then(() => {})
+      },
+    },
+
+    created() {
+    },
+
+    computed: {
     }
-  },
-
-  created() {
-  },
-
-  computed: {
   }
-}
 </script>
 
 <style lang="scss" scoped>
   .h-container {
-    height: 85px;
+    height: 90px;
     text-align: left;
     margin: 0 auto;
+    overflow: hidde;
 
     .v-m-content {
-      cursor: pointer;
+      float: left;
     }
 
     .h-logo {
-      margin-left: 37px;
+      margin-top: 15px;
+      margin-left: 15px;
+      vertical-align: middle;
+      width: 40px;
     }
 
     .h-title {
-      margin-left: 21px;
+      margin-top: 28px;
+      margin-left: 15px;
+      width: 100px;
     }
 
-    .h-link {
+    .h-handle {
       float: right;
-      color: #404060;
-      line-height: 85px;
+      width: 30px;
+      margin: 23px 20px 0 0;
     }
   }
 </style>
