@@ -1,0 +1,51 @@
+<template>
+  <div class="wrapper">
+    <img src="/static/img/ios/mobilesite-ios2_37-38.png" style="width: 100%;">
+    <p style="font-size: 36px; margin: 20px 0;">A.I. TYPING</p>
+    <el-row style="padding: 0 20px;">
+      <el-col :span="12">
+        <img src="/static/img/ios/mobilesite-ios2_41.png">
+        <p>Intelligent AutoCorrect and Prediction</p>
+      </el-col>
+      <el-col :span="12">
+        <img src="/static/img/ios/mobilesite-ios2_43.png">
+        <p>Intelligent Word-Learning</p>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'page-ai',
+    components: {},
+    data () {
+      return {
+      }
+    },
+
+    methods: {
+    },
+
+    created() {
+    },
+
+    computed: {
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+    background: url(/static/img/ios/ai-bg.png) no-repeat;
+    background-size: 100% 100%;
+
+    p {
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+    }
+  }
+</style>
