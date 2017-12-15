@@ -1,20 +1,20 @@
 <template>
   <div class="index">
-    <common-header position="fixed"></common-header>
+    <common-opacity-header position="fixed"></common-opacity-header>
     <index-body></index-body>
     <common-sidebar></common-sidebar>
   </div>
 </template>
 
 <script>
-  import CommonHeader from './common/CommonHeader'
+  import CommonOpacityHeader from './common/CommonOpacityHeader'
   import IndexBody from './index/IndexBody'
   import CommonSidebar from './common/CommonSidebar'
 
 
   export default {
     name: 'index',
-    components: {CommonHeader, IndexBody, CommonSidebar},
+    components: {CommonOpacityHeader, IndexBody, CommonSidebar},
     data () {
       return {
       }

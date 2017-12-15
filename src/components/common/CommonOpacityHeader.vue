@@ -1,8 +1,8 @@
 <template>
-  <div class="h-container" :style="{width: width}">
+  <div class="h-container" :style="{width: width, background: background, position: position}">
     <img src="/static/img/common/logo.png" class="v-m-content h-logo" @click="onGoToIndex">
-    <img src="/static/img/common/typany-black.png" class="v-m-content h-title" @click="onGoToIndex">
-    <img src="/static/img/common/handle-black.png" class="h-handle" @click="onOpenSidebar">
+    <img src="/static/img/common/typany.png" class="v-m-content h-title" @click="onGoToIndex">
+    <img src="/static/img/common/handle.png" class="h-handle" @click="onOpenSidebar">
   </div>
 </template>
 
@@ -14,6 +14,14 @@
         type: String,
         default: '100%',
       },
+      background: {
+        type: String,
+        default: 'rgba(0, 0, 0, 0)'
+      },
+      position: {
+        type: String,
+        default: 'relative',
+      }
     },
     data () {
       return {
