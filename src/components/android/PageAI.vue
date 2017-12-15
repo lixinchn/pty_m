@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <img src="/static/img/android/mobilesite-andriod_03.png" style="width: 100%;">
-    <img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;">
+    <a href="http://typany.com/api/go.php?id=1"><img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;"></a>
     <el-row>
       <el-col :span="8">
         <img src="/static/img/android/mobilesite-andriod_07.png">
