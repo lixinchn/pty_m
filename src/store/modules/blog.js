@@ -1,4 +1,5 @@
-import {BLOG_SearchByKey, BLOG_GetBlogCategory, BLOG_GetRecommendingBlog, BLOG_GetBlogList} from '../../api/blog'
+import {BLOG_SearchByKey, BLOG_GetBlogCategory, BLOG_GetRecommendingBlog, BLOG_GetBlogList, BLOG_GetBlogInfo,
+        BLOG_Comment} from '../../api/blog'
 
 
 const blog = {
@@ -51,11 +52,27 @@ const blog = {
       })
     },
 
+    BLOG_GetBlogInfo({commit}, data) {
+      return new Promise((resolve, reject) => {
+        BLOG_GetBlogInfo(data).then(response => {
+          resolve(response.data)
+        })
+      })
+    },
+
     BLOG_GetBlogList({commit}, data) {
       return new Promise((resolve, reject) => {
         BLOG_GetBlogList(data).then(response => {
           if (response.data.data.list)
             commit('SET_BLOG_LIST', response.data.data.list)
+          resolve(response.data)
+        })
+      })
+    },
+
+    BLOG_Comment({commit}, data) {
+      return new Promise((resolve, reject) => {
+        BLOG_Comment(data).then(response => {
           resolve(response.data)
         })
       })

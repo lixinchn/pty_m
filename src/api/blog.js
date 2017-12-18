@@ -27,3 +27,18 @@ export function BLOG_GetBlogList(data) {
     method: 'get',
   })
 }
+
+export function BLOG_GetBlogInfo(data) {
+  return fetch({
+    url: 'bloginfo.php?' + data,
+    method: 'get',
+  })
+}
+
+export function BLOG_Comment(data) {
+  return fetch({
+    url: 'comments.php',
+    method: 'post',
+    data,
+  })
+}
