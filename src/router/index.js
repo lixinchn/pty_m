@@ -6,6 +6,7 @@ import Android from '@/components/Android'
 import Ios from '@/components/Ios'
 import Blog from '@/components/Blog'
 import BlogDetail from '@/components/BlogDetail'
+import Contact from '@/components/Contact'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/blog/detail',
       name: BlogDetail,
       component: BlogDetail,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
     },
   ]
 })
