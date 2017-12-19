@@ -13,6 +13,21 @@
           <p style="margin: 0; color: #ccc;">|</p>
           <p style="margin: 0 0 0 8px;" :class="{'highlight-btn': videoHighlight}" @click="highlightVideo">VIDEO</p>
         </div>
+        <div class="gallary">
+          <div v-for="(img, index) in imgUploadList" :key="index" style="display: inline-block;">
+            <img :src="imageDataUrlList[index]">
+            <div class="g-close"></div>
+          </div>
+          <el-upload
+            action="http://typany.com/api/revpic.php"
+            :on-success="onUploadSucc"
+            :before-upload="beforeUpload"
+            class="image-upload"
+            :show-file-list="showFileList"
+            v-show="addBtnShow">
+            <img src="/static/img/contact/add-img.png" class="icon">
+          </el-upload>
+        </div>
       </div>
     </form>
   </div>
@@ -41,6 +56,9 @@
         textareaVideoInfo: {},
         imageHighlight: true,
         videoHighlight: false,
+        imgUploadList: [],
+        imageDataUrlList: [],
+        showFileList: false,
       }
     },
 
@@ -52,7 +70,37 @@
       highlightVideo() {
         this.imageHighlight = false
         this.videoHighlight = true
-      }
+      },
+      onUpload(e) {
+        if (!this.beforeUpload(e.target.files[0]))
+          return false
+        return true
+      },
+      onUploadSucc(response) {
+        if (response.code) {
+          this.$message.error(response.msg)
+          return
+        }
+        this.imgUploadList.push(response.data)
+      },
+      beforeUpload(file) {
+        const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
+        const isLT5M = file.size / 1024 / 1024 < 5
+
+        let reader = new FileReader()
+        reader.onload = (e) => {
+          if (!isValidType || !isLT5M)
+            return
+          this.imageDataUrlList.push(e.target.result)
+        }
+        reader.readAsDataURL(file)
+
+        if (!isValidType)
+          this.$message.error('Only JPG and PNG image supported')
+        else if (!isLT5M)
+          this.$message.error('Image size must less than 5MB')
+        return isValidType && isLT5M
+      },
     },
 
     created() {
@@ -78,6 +126,10 @@
           paddingTop += 110
         style['padding-top'] = paddingTop + 'px'
         return style
+      },
+
+      addBtnShow() {
+        return (this.imgUploadList.length < 6 && this.imageHighlight)
       },
     },
     watch: {
@@ -137,12 +189,30 @@
       * {
         display: inline-block;
         font-size: 22px;
-        font-family: MyriadPro;
+        font-family: 'MyriadPro Regular';
         color: #454545;
       }
 
       .highlight-btn {
         color: #1ba2fc;
+      }
+    }
+
+    .gallary {
+      max-width: 90%;
+      width: 240px;
+      position: absolute;
+      bottom: 66px;
+      left: 14px;
+      text-align: left;
+      img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+
+      .image-upload {
+        display: inline-block;
       }
     }
   }
