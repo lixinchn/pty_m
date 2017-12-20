@@ -7,16 +7,16 @@
       </div>
       <div class="split"></div>
       <div style="width: 100%;">
-        <div v-for="(item, index) in firstList" :key="item.title + index" class="list">
+        <div v-for="(item, index) in firstList" :key="item.title + index" class="list" @click="onCloseSidebar">
           <router-link :to="item.path">{{item.title}}</router-link>
         </div>
         <div class="split" style="margin: 13px 0 13px 30px;"></div>
-        <div v-for="(item, index) in secondList" :key="item.title + index" class="list">
+        <div v-for="(item, index) in secondList" :key="item.title + index" class="list" @click="onCloseSidebar">
           <router-link :to="item.path">{{item.title}}</router-link>
         </div>
       </div>
       <div style="position: absolute; bottom: 0; width: 100%;">
-        <div v-for="(item, index) in thirdList" :key="item.title + index" class="list list-bottom">
+        <div v-for="(item, index) in thirdList" :key="item.title + index" class="list list-bottom" @click="onCloseSidebar">
           <router-link :to="item.path">{{item.title}}</router-link>
         </div>
       </div>
@@ -71,6 +71,7 @@
     height: 100%;
     position: fixed;
     right: 0; top: 0;
+    z-index: 1000;
 
     .left-side, .right-side {
       width: 50%;

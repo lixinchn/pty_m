@@ -56,6 +56,20 @@
         <div class="c-i-f-close" @click="onSuccDialogClose"></div>
       </div>
     </el-dialog>
+
+    <el-dialog
+      title=""
+      ref="dropDialog"
+      :visible.sync="dialogDrop"
+      customClass="dialog-drop">
+      <div class="d-d-back">
+        <img src="/static/img/contact/drop-question.png" style="margin-top: 40px;">
+        <p>Drop upload images</p>
+        <div class="d-d-btn d-d-btn-yes" @click="onDropYes"></div>
+        <div class="d-d-btn d-d-btn-no" @click="onDropClose"></div>
+        <div class="c-i-f-close" @click="onDropClose"></div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -89,6 +103,7 @@
         addBtnShow: true,
         minusBtnShow: false,
         dialogSubmitSucc: false,
+        dialogDrop: true,
       }
     },
 
@@ -188,6 +203,12 @@
 
       onSuccDialogClose() {
         this.dialogSubmitSucc = false
+      },
+      onDropClose() {
+        this.dialogDrop = false
+      },
+      onDropYes() {
+        this.dialogDrop = false
       },
     },
 
@@ -418,6 +439,38 @@
       &:active {
         background: url(/static/img/contact/drop-close-active.png);
         background-size: 100% 100%;
+      }
+    }
+
+    .d-d-back {
+      width: 100%;
+      height: 100%;
+      background: url(/static/img/contact/drop-back.png) no-repeat;
+      background-size: 100% 100%;
+      p {
+        font-size: 16px;
+        font-family: Helvetica;
+        color: #fff;
+      }
+      .d-d-btn {
+        width: 87px;
+        height: 40px;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 25px;
+      }
+      .d-d-btn-yes {
+        margin-right: 24px;
+        background: url(/static/img/contact/drop-yes.png) no-repeat;
+        &:active {
+          background: url(/static/img/contact/drop-yes-active.png);
+        }
+      }
+      .d-d-btn-no {
+        background: url(/static/img/contact/drop-no.png) no-repeat;
+        &:active {
+          background: url(/static/img/contact/drop-no-active.png);
+        }
       }
     }
   }
