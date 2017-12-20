@@ -6,16 +6,16 @@
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
       <div style="position: relative; width: 100%; margin: 0 auto;">
         <textarea style="margin-bottom: 8px; min-height: 200px; resize: none;" :style="autoStyle" class="b-c-input" v-model="contactForm.comment" :placeholder="textAreaPlaceholder"></textarea>
-        <div class="form-btn add-btn"></div>
-        <div class="form-btn minus-btn"></div>
-        <div class="form-bottom-line">
+        <div class="form-btn add-btn" v-show="addBtnShow" @click="addBtnClick"></div>
+        <div class="form-btn minus-btn" v-show="minusBtnShow" @click="minusBtnClick"></div>
+        <div class="form-bottom-line" v-show="bottomLineShow">
           <p style="margin: 0 8px 0 12px;" :class="{'highlight-btn': imageHighlight}" @click="highlightImage">IMAGE</p>
           <p style="margin: 0; color: #ccc;">|</p>
           <p style="margin: 0 0 0 8px;" :class="{'highlight-btn': videoHighlight}" @click="highlightVideo">VIDEO</p>
         </div>
         <div class="gallary">
-          <div v-for="(img, index) in imgUploadList" :key="index" style="display: inline-block;">
-            <img :src="imageDataUrlList[index]">
+          <div v-for="(img, index) in contactForm.imagesLocation" :key="index" style="display: inline-block;">
+            <img :src="contactForm.images[index]">
             <div class="g-close"></div>
           </div>
           <el-upload
@@ -24,16 +24,43 @@
             :before-upload="beforeUpload"
             class="image-upload"
             :show-file-list="showFileList"
-            v-show="addBtnShow">
+            v-show="addImgBtnShow">
             <img src="/static/img/contact/add-img.png" class="icon">
           </el-upload>
         </div>
+        <div class="video-form" v-show="videoFormShow">
+          <p style="display: inline-block;">Add links from</p>
+          <img src="/static/img/contact/youtube.png" style="width: 20px; float: right;">
+          <input placeholder="URL:" @change="onGetVideoInfo" v-model="url">
+        </div>
+        <div class="loading" v-show="loadingShow"></div>
+        <div class="video-info" v-show="videoInfoShow">
+          <img :src="videoSrc">
+          <p>{{videoTitle}}</p>
+        </div>
+      </div>
+      <div style="position: relative; overflow: hidden;">
+        <div class="form-submit-btn" @click="onSubmit"></div>
       </div>
     </form>
+
+    <el-dialog
+      title=""
+      ref="succDialog"
+      :visible.sync="dialogSubmitSucc"
+      customClass="dialog-submit-succ">
+      <div class="d-s-back">
+        <img src="/static/img/contact/contact-succ.png" style="margin-top: 40px;">
+        <p>Your Feedback is Highly</p>
+        <p>Appreciated!</p>
+        <div class="c-i-f-close" @click="onSuccDialogClose"></div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+  import {createGetParams, paramArrayToString} from '../../utils/param'
   import {mapGetters} from 'vuex'
 
   export default {
@@ -56,9 +83,12 @@
         textareaVideoInfo: {},
         imageHighlight: true,
         videoHighlight: false,
-        imgUploadList: [],
-        imageDataUrlList: [],
         showFileList: false,
+        loadingShow: false,
+        url: '',
+        addBtnShow: true,
+        minusBtnShow: false,
+        dialogSubmitSucc: false,
       }
     },
 
@@ -81,7 +111,7 @@
           this.$message.error(response.msg)
           return
         }
-        this.imgUploadList.push(response.data)
+        this.contactForm.imagesLocation.push(response.data)
       },
       beforeUpload(file) {
         const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
@@ -91,7 +121,7 @@
         reader.onload = (e) => {
           if (!isValidType || !isLT5M)
             return
-          this.imageDataUrlList.push(e.target.result)
+          this.contactForm.images.push(e.target.result)
         }
         reader.readAsDataURL(file)
 
@@ -101,20 +131,81 @@
           this.$message.error('Image size must less than 5MB')
         return isValidType && isLT5M
       },
+      onGetVideoInfo() {
+        if (!this.url)
+          return
+
+        this.loadingShow = true
+        const data = {url: this.url}
+        this.$store.dispatch('CONTACT_GetYoutubeVideoInfo', createGetParams(data)).then((data) => {
+          this.loadingShow = false
+          if (data.code) {
+            this.$message.error('error: ' + data.status)
+            return
+          }
+          console.log(data)
+        }).catch(err => {
+          this.$message.error(err)
+        })
+      },
+      addBtnClick() {
+        this.addBtnShow = false
+        this.minusBtnShow = true
+      },
+      minusBtnClick() {
+        this.addBtnShow = true
+        this.minusBtnShow = false
+      },
+      onSubmit() {
+        const data = {
+          name: this.contactForm.name,
+          email: this.contactForm.email,
+          res: this.contactForm.comment,
+          pics: paramArrayToString(this.contactForm.imagesLocation),
+          video: this.contactForm.video,
+        }
+        this.$store.dispatch('CONTACT_Contact', createGetParams(data)).then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.msg)
+            return
+          }
+          console.log(data)
+          this.dialogSubmitSucc = true
+          this.refreshContactForm()
+        })
+      },
+      refreshContactForm() {
+        this.contactForm = {
+          name: '',
+          email: '',
+          occupation: '',
+          comment: '',
+          images: [],
+          imagesLocation: [],
+          video: '',
+        }
+      },
+
+      onSuccDialogClose() {
+        this.dialogSubmitSucc = false
+      },
     },
 
     created() {
     },
 
     computed: {
+      ...mapGetters([
+        'youtubeVideoInfo',
+      ]),
       textAreaPlaceholder() {
-        if (this.contactForm.images.length > 0 || this.textareaVideoInfo.title)
+        if (this.contactForm.images.length > 0 || this.youtubeVideoInfo.title)
           return ''
         return 'Tell us about your story and interests'
       },
       autoStyle() {
         let style = {}
-        style.height = (this.contactForm.images.length > 0 && this.textareaVideoInfo.title) ? '415px' : '215px'
+        style.height = (this.contactForm.images.length > 0 && this.youtubeVideoInfo.title) ? '415px' : '215px'
         
         let paddingTop = 5
         if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
@@ -122,14 +213,31 @@
         else if (this.contactForm.images.length > 3)
           paddingTop += 160
 
-        if (this.textareaVideoInfo.title)
+        if (this.youtubeVideoInfo.title)
           paddingTop += 110
         style['padding-top'] = paddingTop + 'px'
         return style
       },
 
-      addBtnShow() {
-        return (this.imgUploadList.length < 6 && this.imageHighlight)
+      addImgBtnShow() {
+        return (this.contactForm.imagesLocation.length < 6 && this.imageHighlight && this.minusBtnShow)
+      },
+
+      videoFormShow() {
+        return this.minusBtnShow && this.videoHighlight
+      },
+
+      videoInfoShow() {
+        return this.youtubeVideoInfo.title
+      },
+      videoSrc() {
+        return this.youtubeVideoInfo.title ? this.youtubeVideoInfo.thumbnails.default.url : ''
+      },
+      videoTitle() {
+        return this.youtubeVideoInfo.title ? this.youtubeVideoInfo.title : ''
+      },
+      bottomLineShow() {
+        return this.minusBtnShow
       },
     },
     watch: {
@@ -163,6 +271,7 @@
       position: absolute;
       right: 12px;
       bottom: 22px;
+      z-index: 1;
     }
 
     .add-btn {
@@ -173,7 +282,6 @@
     .minus-btn {
       background: url(/static/img/contact/minus-btn.png) no-repeat;
       background-size: 100% 100%;
-      z-index: 1;
     }
 
     .form-bottom-line {
@@ -213,6 +321,103 @@
 
       .image-upload {
         display: inline-block;
+      }
+    }
+
+    .video-form {
+      width: 90%;
+      position: absolute;
+      bottom: 70px;
+      text-align: left;
+      padding: 0 10px;
+
+      p {
+        margin: 0;
+        font-size: 18px;
+        color: #bcbcbc;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #ccc;
+        height: 30px;
+        font-size: 16px;
+        color: #bcbcbc;
+        padding: 0 6px;
+        ::placeholder {
+          color: #bcbcbc;
+        }
+      }
+    }
+
+    .loading {
+      position: absolute;
+      bottom: 120px;
+      left: 0px;
+      width: 60px;
+      height: 60px;
+      background: url(/static/img/contact/loading.gif) no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .video-info {
+      position: absolute;
+      bottom: 140px;
+      left: 6px;
+      width: 98%;
+      height: 90px;
+
+      img {
+        vertical-align: top;
+        width: 48%;
+        height: 100%;
+      }
+
+      p {
+        margin: 0;
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        text-align: left;
+        overflow: hidden;
+      }
+    }
+    .form-submit-btn {
+      width: 120px;
+      height: 40px;
+      background: url(/static/img/contact/submit.png) no-repeat;
+      background-size: 100% 100%;
+      margin-bottom: 20px;
+      float: right;
+
+      &:active {
+        background: url(/static/img/contact/submit-active.png) no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+
+    .d-s-back {
+      width: 100%;
+      height: 100%;
+      background: url(/static/img/contact/contact-succ-back.png) no-repeat;
+      p {
+        font-size: 16px;
+        font-family: Helvetica;
+        color: #fff;
+      }
+    }
+
+    .c-i-f-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 16px;
+      height: 16px;
+      background: url(/static/img/contact/drop-close.png) no-repeat;
+      background-size: 100% 100%;
+      &:active {
+        background: url(/static/img/contact/drop-close-active.png);
+        background-size: 100% 100%;
       }
     }
   }

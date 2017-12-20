@@ -46,6 +46,7 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
+    staticPath:'/static/',
   },
 
   build: {
@@ -56,6 +57,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    staticPath: './static/', //生产环境 staticPath:''
 
     /**
      * Source Maps
