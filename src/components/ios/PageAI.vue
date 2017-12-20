@@ -38,7 +38,6 @@
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    margin-bottom: 40px;
     background: url(/static/img/ios/ai-bg.png) no-repeat;
     background-size: 100% 100%;
 

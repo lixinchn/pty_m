@@ -70,6 +70,7 @@
         background-size: 100% 100%;
         &:active {
           background: url(/static/img/index/google-play-active.png);
+          background-size: 100% 100%;
         }
       }
 
@@ -78,6 +79,7 @@
         background-size: 100% 100%;
         &:active {
           background: url(/static/img/index/app-store-active.png);
+          background-size: 100% 100%;
         }
       }
     }
