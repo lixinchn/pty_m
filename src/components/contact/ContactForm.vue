@@ -19,7 +19,7 @@
             <div class="g-close"></div>
           </div>
           <el-upload
-            action="http://typany.com/api/revpic.php"
+            action="http://m.typany.com/api/revpic.php"
             :on-success="onUploadSucc"
             :before-upload="beforeUpload"
             class="image-upload"
@@ -103,7 +103,7 @@
         addBtnShow: true,
         minusBtnShow: false,
         dialogSubmitSucc: false,
-        dialogDrop: true,
+        dialogDrop: false,
       }
     },
 
@@ -115,11 +115,6 @@
       highlightVideo() {
         this.imageHighlight = false
         this.videoHighlight = true
-      },
-      onUpload(e) {
-        if (!this.beforeUpload(e.target.files[0]))
-          return false
-        return true
       },
       onUploadSucc(response) {
         if (response.code) {
