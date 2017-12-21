@@ -13,6 +13,10 @@ const contact = {
       state.youtubeVideoInfo = youtubeVideoInfo
     },
 
+    REMOVE_YOUTUBE_VIDEO_INFO: (state) => {
+      state.youtubeVideoInfo = {}
+    },
+
     SET_CLOSE_VIDEO_FORM: (state) => {
       state.closeVideoForm = !state.closeVideoForm
     },
@@ -37,6 +41,13 @@ const contact = {
           commit('SET_YOUTUBE_VIDEO_INFO', response.data.data)
           resolve(response.data)
         })
+      })
+    },
+
+    CONTACT_ClearYoutubeVideoInfo({commit}) {
+      return new Promise((resolve, reject) => {
+        commit('REMOVE_YOUTUBE_VIDEO_INFO')
+        resolve()
       })
     },
 

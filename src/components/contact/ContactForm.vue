@@ -37,6 +37,7 @@
         <div class="video-info" v-show="videoInfoShow">
           <img :src="videoSrc">
           <p>{{videoTitle}}</p>
+          <div class="v-close" @click="videoClose"></div>
         </div>
       </div>
       <div style="position: relative; overflow: hidden;">
@@ -203,7 +204,13 @@
         this.dialogDrop = false
       },
       onDropYes() {
-        this.dialogDrop = false
+        this.$store.dispatch('CONTACT_ClearYoutubeVideoInfo').then(() => {
+          this.dialogDrop = false
+          this.url = ''
+        })
+      },
+      videoClose() {
+        this.dialogDrop = true
       },
     },
 
@@ -396,6 +403,21 @@
         height: 100%;
         text-align: left;
         overflow: hidden;
+        padding-top: 6px;
+      }
+
+      .v-close {
+        width: 16px;
+        height: 16px;
+        background: url(/static/img/contact/close-pop.png) no-repeat;
+        background-size: 100% 100%;
+        top: -5px;
+        position: absolute;
+        right: 0px;
+        &:active {
+          background: url(/static/img/contact/close-pop-active.png);
+          background-size: 100% 100%;
+        }
       }
     }
     .form-submit-btn {
