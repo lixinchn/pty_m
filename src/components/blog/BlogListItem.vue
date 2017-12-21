@@ -48,7 +48,7 @@
   .wrapper {
     display: inline-block;
     width: 48%;
-    height: 254px;
+    height: 250px;
     border: 1px solid #dfdfdf;
     border-radius: 6px;
     position: relative;
