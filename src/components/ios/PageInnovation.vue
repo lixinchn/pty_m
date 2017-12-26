@@ -43,7 +43,7 @@
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    background: url(/static/img/ios/innovation-bg.png) no-repeat;
+    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-ios-innovation-bg.png) no-repeat;
     background-size: 100% 100%;
     margin-bottom: 40px;
 

@@ -84,7 +84,7 @@
     }
 
     .right-side {
-      background: url(/static/img/common/sidebar-bg.png) no-repeat;
+      background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-sidebar-bg.png) no-repeat;
       background-size: 100% 100%;
     }
 

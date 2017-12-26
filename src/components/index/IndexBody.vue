@@ -34,7 +34,7 @@
   .b-wrapper {
     width: 100%;
     height: 100%;
-    background: url(/static/img/index/bg.png) no-repeat;
+    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-index-bg.png) no-repeat;
     background-size: 100% 100%;
 
     .content {

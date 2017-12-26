@@ -38,7 +38,7 @@
 <style lang="scss" scoped>
   .wrapper {
     width: 100%;
-    background: url(/static/img/android/bg4.png) no-repeat;
+    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-android-bg4.png) no-repeat;
     background-size: 100% 100%;
     padding-bottom: 40px;
 
