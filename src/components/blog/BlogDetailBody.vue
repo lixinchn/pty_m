@@ -58,7 +58,6 @@
   .wrapper {
     width: 100%;
     .gallary {
-      height: 445px;
     }
     .content-wrapper {
       overflow: auto;
