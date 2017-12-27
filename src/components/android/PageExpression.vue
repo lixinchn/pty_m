@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/android/mobilesite-andriod_17.png" style="width: 100%; background: url(/static/img/android/bg2.png) no-repeat;
+    <img :src="expGif" style="width: 100%; background: url(/static/img/android/bg2.png) no-repeat;
     background-size: 100% 100%;">
     <p style="font-size: 36px; margin: 20px 0;">EXPRESSION</p>
     <el-row style="padding: 0 20px;">
@@ -22,6 +22,7 @@
     components: {},
     data () {
       return {
+        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/exp.gif?t=' + Date.now()
       }
     },
 

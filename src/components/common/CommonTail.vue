@@ -1,9 +1,9 @@
 <template>
   <div style="width: 100%; background: #290043; position: relative;">
     <el-row class="i-t-wrapper" type="flex" justify="space-around">
-      <div><a href="#" class="i-t-anchor" style="opacity: 0.2;">Privacy Policy</a></div>
+      <div><a href="/policy" class="i-t-anchor" style="opacity: 0.2;">Privacy Policy</a></div>
       <div><a href="#" class="i-t-anchor" style="opacity: 0.2;">©2017 sogou-inc</a></div>
-      <div><a href="#" class="i-t-anchor" style="opacity: 0.2;">Terms of Service</a></div>
+      <div><a href="/service" class="i-t-anchor" style="opacity: 0.2;">Terms of Service</a></div>
     </el-row>
   </div>
 </template>

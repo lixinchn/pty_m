@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/android/mobilesite-andriod_03.png" style="width: 100%;">
+    <img :src="typingGif" style="width: 95%;">
     <a href="http://typany.com/api/go.php?id=1"><img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;"></a>
     <el-row>
       <el-col :span="8">
@@ -25,6 +25,7 @@
     components: {},
     data () {
       return {
+        typingGif: 'https://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing.gif?t=' + Date.now()
       }
     },
 

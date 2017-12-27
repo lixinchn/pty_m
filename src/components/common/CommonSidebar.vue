@@ -41,8 +41,8 @@
           {title: 'Contact', path: '/contact'},
         ],
         thirdList: [
-          {title: 'Terms of Service', path: '#'},
-          {title: 'Privacy Policy', path: '#'},
+          {title: 'Terms of Service', path: '/service'},
+          {title: 'Privacy Policy', path: '/policy'},
           {title: '©2017 sogou.inc', path: '#'},
         ],
       }
