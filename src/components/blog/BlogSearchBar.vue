@@ -5,7 +5,7 @@
       <img class="search-btn" src="/static/img/blog/search.png" @click="onSearch(searchKeyText)">
       <ul class="tag-list" v-show="tagListShow">
         <li v-for="(item, index) in tagList" :key="index" @click="onSearch(item.title)">
-          {{item.title}}({{item.cnt}})
+          {{item.title}}
         </li>
       </ul>
     </div>
@@ -36,17 +36,19 @@
         if (!searchKey)
           return
         this.tagListShow = false
+        this.$router.push({path: '/blog', query: {tag: searchKey}})
+        location.reload()
 
-        const data = {tag: searchKey}
-        this.$store.dispatch('BLOG_SearchByKey', createGetParams(data)).then((data) => {
-          if (data.code) {
-            this.$message.error('error: ' + data.status)
-            return
-          }
-          console.log(data)
-        }).catch(err => {
-          this.$message.error(err)
-        })
+        // const data = {tag: searchKey}
+        // this.$store.dispatch('BLOG_SearchByKey', createGetParams(data)).then((data) => {
+        //   if (data.code) {
+        //     this.$message.error('error: ' + data.status)
+        //     return
+        //   }
+        //   console.log(data)
+        // }).catch(err => {
+        //   this.$message.error(err)
+        // })
       },
 
       onFocus() {
