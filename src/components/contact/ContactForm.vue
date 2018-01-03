@@ -13,7 +13,7 @@
           <p style="margin: 0; color: #ccc;">|</p>
           <p style="margin: 0 0 0 8px;" :class="{'highlight-btn': videoHighlight}" @click="highlightVideo">VIDEO</p>
         </div>
-        <div class="gallary">
+        <div class="gallary" :style="gallaryAutoStyle">
           <div v-for="(img, index) in contactForm.imagesLocation" :key="index" style="display: inline-block;">
             <img :src="contactForm.images[index]">
             <div class="g-close"></div>
@@ -34,7 +34,7 @@
           <input placeholder="URL:" @change="onGetVideoInfo" v-model="url">
         </div>
         <div class="loading" v-show="loadingShow"></div>
-        <div class="video-info" v-show="videoInfoShow">
+        <div class="video-info" v-show="videoInfoShow" :style="videoInfoAutoStyle">
           <img :src="videoSrc">
           <p>{{videoTitle}}</p>
           <div class="v-close" @click="videoClose"></div>
@@ -65,7 +65,7 @@
       customClass="dialog-drop">
       <div class="d-d-back">
         <img src="/static/img/contact/drop-question.png" style="margin-top: 40px;">
-        <p>Drop upload images</p>
+        <p>Drop upload video</p>
         <div class="d-d-btn d-d-btn-yes" @click="onDropYes"></div>
         <div class="d-d-btn d-d-btn-no" @click="onDropClose"></div>
         <div class="c-i-f-close" @click="onDropClose"></div>
@@ -228,17 +228,44 @@
       },
       autoStyle() {
         let style = {}
-        style.height = (this.contactForm.images.length > 0 && this.youtubeVideoInfo.title) ? '415px' : '215px'
+        let height = 215
+        if (this.contactForm.images.length > 0)
+          height += 80
+        if (this.contactForm.images.length >= 3)
+          height += 80
+        if (this.videoInfoShow)
+          height += 100
         
         let paddingTop = 5
-        if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
-          paddingTop += 80
-        else if (this.contactForm.images.length > 3)
-          paddingTop += 160
+        // if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
+        //   paddingTop += 80
+        // else if (this.contactForm.images.length > 3)
+        //   paddingTop += 160
 
-        if (this.youtubeVideoInfo.title)
-          paddingTop += 110
+        // if (this.youtubeVideoInfo.title)
+        //   paddingTop += 110
         style['padding-top'] = paddingTop + 'px'
+        style['height'] = height + 'px'
+        return style
+      },
+
+      gallaryAutoStyle() {
+        let style = {}
+        let bottom = 65
+        if (this.videoHighlight)
+          bottom += 85
+        if (this.videoInfoShow)
+          bottom += 100
+        style['bottom'] = bottom + 'px'
+        return style
+      },
+
+      videoInfoAutoStyle() {
+        let style = {}
+        let bottom = 140
+        if (!this.videoHighlight)
+          bottom = 70
+        style['bottom'] = bottom + 'px'
         return style
       },
 
@@ -333,7 +360,6 @@
       max-width: 90%;
       width: 240px;
       position: absolute;
-      bottom: 66px;
       left: 14px;
       text-align: left;
       img {
@@ -385,10 +411,11 @@
 
     .video-info {
       position: absolute;
-      bottom: 140px;
-      left: 6px;
-      width: 98%;
+      left: 10px;
+      right: 10px;
       height: 90px;
+      border: 1px solid #eee;
+      padding-right: 8px;
 
       img {
         vertical-align: top;
@@ -399,11 +426,10 @@
       p {
         margin: 0;
         display: inline-block;
-        width: 50%;
+        width: calc(50% - 8px);
         height: 100%;
         text-align: left;
         overflow: hidden;
-        padding-top: 6px;
       }
 
       .v-close {
@@ -411,9 +437,9 @@
         height: 16px;
         background: url(/static/img/contact/close-pop.png) no-repeat;
         background-size: 100% 100%;
-        top: -5px;
+        top: -8px;
         position: absolute;
-        right: 0px;
+        right: -8px;
         &:active {
           background: url(/static/img/contact/close-pop-active.png);
           background-size: 100% 100%;
