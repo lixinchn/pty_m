@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/ios/mobilesite-ios2_29.png" style="width: 100%; background: url(/static/img/ios/experssion-bg.png) no-repeat;
+    <img :src="typingGif" style="width: 100%; background: url(/static/img/ios/experssion-bg.png) no-repeat;
     background-size: 100% 100%;">
     <p style="font-size: 36px; margin: 20px 0;">EXPRESSION</p>
     <el-row style="padding: 0 20px;">
@@ -22,6 +22,7 @@
     components: {},
     data () {
       return {
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-ios.gif?t=' + Date.now()
       }
     },
 

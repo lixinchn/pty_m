@@ -3,9 +3,12 @@
     <div class="content">
       <p class="title">THE STORY</p>
       <p class="title">POWERED BY YOU</p>
-      <p class="s-title">Express yourself without boundaries but Typany</p>
-        <a href="http://typany.com/api/go.php?id=1" class="btn g-btn"></a>
-        <a href="http://typany.com/api/go.php?id=2" class="btn a-btn"></a>
+      <div>
+        <p class="s-title">Express yourself without boundaries but Typany</p>
+        <a href="http://typany.com/api/go.php?id=3"><img src="/static/img/index/fb.png" style="vertical-align: middle;"></a>
+      </div>
+      <a href="http://typany.com/api/go.php?id=1" class="btn g-btn"></a>
+      <a href="http://typany.com/api/go.php?id=2" class="btn a-btn"></a>
     </div>
   </div>
 </template>
@@ -57,6 +60,7 @@
         font-family: 'Avenir Book';
         font-size: 14px;
         color: #fff;
+        display: inline-block;
       }
 
       .btn {

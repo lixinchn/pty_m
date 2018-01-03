@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/ios/mobilesite-ios2_37-38.png" style="width: 100%;">
+    <!-- <img src="/static/img/ios/mobilesite-ios2_37-38.png" style="width: 100%;"> -->
+    <img :src="typingGif" style="width: 100%;">
     <p style="font-size: 36px; margin: 20px 0;">A.I. TYPING</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12">
@@ -21,6 +22,7 @@
     components: {},
     data () {
       return {
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-ios.gif?t=' + Date.now()
       }
     },
 

@@ -52,7 +52,7 @@
   .wrapper {
     display: inline-block;
     width: 48%;
-    height: 250px;
+    height: 210px;
     border: 1px solid #dfdfdf;
     border-radius: 6px;
     position: relative;
@@ -65,7 +65,7 @@
 
     .thumb {
       width: 100%;
-      height: 178px;
+      height: 128px;
       border: 0;
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;

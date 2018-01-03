@@ -25,7 +25,7 @@
     components: {},
     data () {
       return {
-        typingGif: 'https://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing.gif?t=' + Date.now()
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/ai-typing-android.gif?t=' + Date.now()
       }
     },
 

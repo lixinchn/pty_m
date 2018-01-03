@@ -3,7 +3,7 @@
     <div class="left-side" @click="onCloseSidebar"></div>
     <div class="right-side">
       <div style="width: 100%; text-align: left;">
-        <img src="/static/img/common/sidebar-typany.png" style="width: 50%; margin: 28px 0 28px 30px;">
+        <a href="/"><img src="/static/img/common/sidebar-typany.png" style="width: 50%; margin: 28px 0 28px 30px;"></a>
       </div>
       <div class="split"></div>
       <div style="width: 100%;">
