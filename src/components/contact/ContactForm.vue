@@ -1,8 +1,8 @@
 <template>
   <div class="c-f-wrapper">
     <form v-model="contactForm" ref="contactForm">
-      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.name" placeholder="Name">
-      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email">
+      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.name" placeholder="Name*">
+      <input type="text" style="" class="b-c-input" v-model.trim="contactForm.email" placeholder="Email*">
       <input type="text" style="" class="b-c-input" v-model="contactForm.occupation" placeholder="Occupation">
       <div style="position: relative; width: 100%; margin: 0 auto;">
         <textarea style="margin-bottom: 8px; min-height: 200px; resize: none;" :style="autoStyle" class="b-c-input" v-model="contactForm.comment" :placeholder="textAreaPlaceholder"></textarea>
@@ -40,8 +40,9 @@
           <div class="v-close" @click="videoClose"></div>
         </div>
       </div>
+      <p style="margin: 0; text-align: left; color: #bcbcbc; font-size: 14px;">Maximum upload file size: 2 MB.</p>
       <div style="position: relative; overflow: hidden;">
-        <div class="form-submit-btn" @click="onSubmit"></div>
+        <div class="form-submit-btn" @click="onSubmit" :style="autoStyleSubmitBtn"></div>
       </div>
     </form>
 
@@ -168,6 +169,9 @@
         this.minusBtnShow = false
       },
       onSubmit() {
+        if (!this.contactForm.name || !this.contactForm.email)
+          return
+
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
@@ -185,10 +189,14 @@
           this.refreshContactForm()
         })
       },
+
+      /*
+       * 产品要求提交后保留 name 和 email 字段
+       */
       refreshContactForm() {
         this.contactForm = {
-          name: '',
-          email: '',
+          name: this.contactForm.name,
+          email: this.contactForm.email,
           occupation: '',
           comment: '',
           images: [],
@@ -292,6 +300,11 @@
       },
       bottomLineShow() {
         return this.minusBtnShow
+      },
+      autoStyleSubmitBtn() {
+        if (!this.contactForm.name || !this.contactForm.email)
+          return {background: 'url(/static/img/contact/submit-gray.png) no-repeat', 'background-size': '100% 100%'}
+        return {}
       },
     },
     watch: {
