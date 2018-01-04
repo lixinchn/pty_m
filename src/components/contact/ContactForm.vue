@@ -14,9 +14,9 @@
           <p style="margin: 0 0 0 8px;" :class="{'highlight-btn': videoHighlight}" @click="highlightVideo">VIDEO</p>
         </div>
         <div class="gallary" :style="gallaryAutoStyle">
-          <div v-for="(img, index) in contactForm.imagesLocation" :key="index" style="display: inline-block;">
+          <div v-for="(img, index) in contactForm.imagesLocation" :key="index" style="display: inline-block; position: relative;">
             <img :src="contactForm.images[index]">
-            <div class="g-close"></div>
+            <div class="g-close" @click="onRemoveImage(index)"></div>
           </div>
           <el-upload
             action="http://m.typany.com/api/revpic.php"
@@ -212,6 +212,10 @@
       videoClose() {
         this.dialogDrop = true
       },
+      onRemoveImage(index) {
+        this.contactForm.images.splice(index, 1)
+        this.contactForm.imagesLocation.splice(index, 1)
+      },
     },
 
     created() {
@@ -370,6 +374,16 @@
 
       .image-upload {
         display: inline-block;
+      }
+
+      .g-close {
+        position: absolute;
+        background: url(/static/img/contact/close.png) no-repeat;
+        background-size: 100% 100%;
+        width: 18px;
+        height: 18px;
+        top: -9px;
+        right: 0px;
       }
     }
 
