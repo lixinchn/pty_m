@@ -1,13 +1,13 @@
 <template>
   <div class="wrapper">
     <img src="/static/img/android/mobilesite-andriod_34.png" style="width: 100%;">
-    <p style="font-size: 36px; margin: 20px 0; color: #fff;">PERSONALIZATION</p>
+    <p style="font-size: 36px; margin: 20px 0; color: #fff;">EFFICIENCY</p>
     <el-row style="padding: 0 20px;">
-      <el-col :span="12">
-        <img src="/static/img/android/mobilesite-andriod_37.png">
+      <el-col :span="12" style="padding: 0 15px;">
+        <img src="/static/img/android/mobilesite-andriod_37.png" style="width: 52px;">
         <p>Convenient Emoji Prediction, Based on What You've Just Typed</p>
       </el-col>
-      <el-col :span="12">
+      <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_39.png">
         <p>Simply swipe-to-type with Typany Flow</p>
       </el-col>
@@ -42,9 +42,13 @@
     background-size: 100% 100%;
     padding-bottom: 40px;
 
+    img {
+      width: 50px;
+    }
+
     p {
       font-size: 14px;
-      color: #40415f;
+      color: #fff;
       margin: 0;
     }
   }

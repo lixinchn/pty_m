@@ -3,15 +3,15 @@
     <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 100%;">
     <p style="font-size: 36px; margin: 20px 0;">INNOVATION</p>
     <el-row>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 8px;">
         <img src="/static/img/ios/mobilesite-ios2_07.png">
         <p>First iOS Keyboard Designed for Left-handed User</p>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 8px;">
         <img src="/static/img/ios/mobilesite-ios2_09.png">
         <p>Smart Saver for Password to Save Time and Reduce Frustration</p>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 8px;">
         <img src="/static/img/ios/mobilesite-ios2_07-11.png">
         <p>Revolutionary Clipboard to Make Typing Faster</p>
       </el-col>
@@ -51,6 +51,10 @@
       font-size: 14px;
       color: #40415f;
       margin: 0;
+    }
+
+    img {
+      width: 50px;
     }
 
     .app-store {

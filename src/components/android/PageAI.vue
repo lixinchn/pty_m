@@ -5,15 +5,15 @@
     </lazy-component>
     <a href="http://typany.com/api/go.php?id=1"><img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;"></a>
     <el-row>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_07.png">
         <p>Intelligent AutoCorrect and Prediction</p>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_09.png">
         <p>Intelligent Word-Learning</p>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_11.png">
         <p>Smart Voice Input & Powerful Translator</p>
       </el-col>
@@ -48,6 +48,10 @@
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-android-bg1.png) no-repeat;
     background-size: 100% 100%;
     margin-bottom: 40px;
+
+    img {
+      width: 50px;
+    }
 
     p {
       font-size: 14px;

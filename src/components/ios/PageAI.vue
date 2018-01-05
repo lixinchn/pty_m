@@ -6,11 +6,11 @@
     </lazy-component>
     <p style="font-size: 36px; margin: 20px 0;">A.I. TYPING</p>
     <el-row style="padding: 0 20px;">
-      <el-col :span="12">
+      <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_41.png">
         <p>Intelligent AutoCorrect and Prediction</p>
       </el-col>
-      <el-col :span="12">
+      <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_43.png">
         <p>Intelligent Word-Learning</p>
       </el-col>
@@ -44,6 +44,11 @@
     width: 100%;
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-ios-ai-bg.png) no-repeat;
     background-size: 100% 100%;
+    padding-bottom: 30px;
+
+    img {
+      width: 50px;
+    }
 
     p {
       font-size: 14px;

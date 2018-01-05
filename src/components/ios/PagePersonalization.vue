@@ -4,11 +4,11 @@
     background-size: 100% 100%;">
     <p style="font-size: 36px; margin: 20px 0;">PERSONALIZATION</p>
     <el-row style="padding: 0 20px;">
-      <el-col :span="12">
+      <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_23.png">
         <p>DIY Your Own Keyboard with the Favorite Photo, Wallpaper</p>
       </el-col>
-      <el-col :span="12">
+      <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_25.png">
         <p>A variety of Fine Collected Themes, Be Clarity and Stylish</p>
       </el-col>
@@ -40,6 +40,10 @@
   .wrapper {
     width: 100%;
     margin-bottom: 40px;
+
+    img {
+      width: 50px;
+    }
 
     p {
       font-size: 14px;

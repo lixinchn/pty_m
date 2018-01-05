@@ -24,7 +24,7 @@
         keyPage: 1,
         category: 0,
         noMoreBlog: false,
-        pending: false,
+        pending: true,
         tag: '',
       }
     },

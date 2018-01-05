@@ -11,7 +11,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueLazyload, {
-  preLoad: 0,
+  preLoad: 0.8,
   attemp: 1,
   lazyComponent: true,
   listenEvents: ['scroll'],

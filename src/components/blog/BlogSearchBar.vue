@@ -93,6 +93,7 @@
       border: 1px solid #e3e3e3;
       height: 36px;
       font-size: 20px;
+      outline: none;
     }
 
     .search-btn {
@@ -107,7 +108,8 @@
     .tag-list {
       position: absolute;
       margin: 0;
-      width: 100%;
+      left: calc(5% - 1px);
+      right: calc(5% - 1px);
       padding: 0;
       border: 1px solid #e3e3e3;
       border-top: 0;
