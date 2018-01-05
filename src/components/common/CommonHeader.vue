@@ -50,14 +50,14 @@
     }
 
     .h-logo {
-      margin-top: 15px;
+      margin-top: 22px;
       margin-left: 15px;
       vertical-align: middle;
       width: 40px;
     }
 
     .h-title {
-      margin-top: 28px;
+      margin-top: 35px;
       margin-left: 15px;
       width: 100px;
     }
@@ -65,7 +65,7 @@
     .h-handle {
       float: right;
       width: 30px;
-      margin: 23px 20px 0 0;
+      margin: 30px 20px 0 0;
     }
   }
 </style>
