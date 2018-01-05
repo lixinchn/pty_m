@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-    <img :src="typingGif" style="width: 95%;">
+    <lazy-component>
+      <img v-lazy="typingGif" style="width: 95%; min-height: 500px;">
+    </lazy-component>
     <a href="http://typany.com/api/go.php?id=1"><img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;"></a>
     <el-row>
       <el-col :span="8">

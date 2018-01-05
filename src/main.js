@@ -6,9 +6,16 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import store from './store'
+import VueLazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(VueLazyload, {
+  preLoad: 0,
+  attemp: 1,
+  lazyComponent: true,
+  listenEvents: ['scroll'],
+})
 
 /* eslint-disable no-new */
 new Vue({

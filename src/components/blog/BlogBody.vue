@@ -1,7 +1,7 @@
 <template>
   <div class="blog-wrapper">
     <div class="split"></div>
-    <blog-search-bar :width="childWidth"></blog-search-bar>
+    <blog-search-bar></blog-search-bar>
     <blog-list :width="childWidth"></blog-list>
     <div style="text-align: center; margin: 20px auto;" v-show="pending"><img src="/static/img/blog/loading.png" class="blog-loading"></div>
   </div>

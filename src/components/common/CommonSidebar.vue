@@ -43,7 +43,7 @@
         thirdList: [
           {title: 'Terms of Service', path: '/service'},
           {title: 'Privacy Policy', path: '/policy'},
-          {title: '©2017 sogou.inc', path: '#'},
+          {title: 'Typany© Inc.2018', path: '#'},
         ],
       }
     },

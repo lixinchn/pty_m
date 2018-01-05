@@ -34,6 +34,19 @@
 </script>
 
 <style lang="scss" scoped>
+  @media (max-width: 380px) {
+    .content {
+
+      .title {
+        font-size: 25px !important;
+      }
+
+      .s-title {
+        font-size: 10px !important;
+      }
+    }
+  }
+
   .b-wrapper {
     width: 100%;
     height: 100%;
@@ -48,6 +61,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      max-width: 95%;
+
 
       .title {
         font-family: 'Avenir Light';

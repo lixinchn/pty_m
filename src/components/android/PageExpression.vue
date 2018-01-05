@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
-    <img :src="expGif" style="width: 100%; background: url(/static/img/android/bg2.png) no-repeat;
-    background-size: 100% 100%;">
+    <lazy-component>
+      <img v-lazy="expGif" style="width: 100%; background: url(/static/img/android/bg2.png) no-repeat;
+        background-size: 100% 100%;">
+    </lazy-component>
     <p style="font-size: 36px; margin: 20px 0;">EXPRESSION</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12">

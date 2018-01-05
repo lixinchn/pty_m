@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" :style="{width: width}">
-    <div style="position: relative;">
+    <div style="position: relative; width: 100%;">
       <input class="search-i" v-model="searchKeyText" v-on:keyup.enter="onSearch(searchKeyText)" @focus="onFocus" @blur="onBlur">
       <img class="search-btn" src="/static/img/blog/search.png" @click="onSearch(searchKeyText)">
       <ul class="tag-list" v-show="tagListShow">
@@ -83,21 +83,24 @@
 
 <style lang="scss" scoped>
   .wrapper {
-    width: 95%;
     margin: 20px auto 20px auto;
     font-size: 20px;
 
     .search-i {
-      width: calc(100% - 6px);
-      border: 2px solid #e3e3e3;
+      width: 90%;
+      margin: 0 auto;
+      display: block;
+      border: 1px solid #e3e3e3;
       height: 36px;
       font-size: 20px;
     }
 
     .search-btn {
       position: absolute;
-      right: 6px;
-      top: 7px;
+      right: 1.4rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
       width: 26px;
     }
 
@@ -106,7 +109,7 @@
       margin: 0;
       width: 100%;
       padding: 0;
-      border: 2px solid #e3e3e3;
+      border: 1px solid #e3e3e3;
       border-top: 0;
       padding: 0 1px;
       background: #fff;

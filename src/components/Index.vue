@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <common-opacity-header position="fixed"></common-opacity-header>
+    <common-opacity-header position="absolute"></common-opacity-header>
     <index-body></index-body>
     <common-sidebar></common-sidebar>
   </div>
