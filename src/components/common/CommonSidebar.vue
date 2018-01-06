@@ -8,16 +8,16 @@
       <div class="split"></div>
       <div style="width: 100%;">
         <div v-for="(item, index) in firstList" :key="item.title + index" class="list" @click="onCloseSidebar">
-          <router-link :to="item.path">{{item.title}}</router-link>
+          <p @click="jump(item.path)">{{item.title}}</p>
         </div>
         <div class="split" style="margin: 13px 0 13px 30px;"></div>
         <div v-for="(item, index) in secondList" :key="item.title + index" class="list" @click="onCloseSidebar">
-          <router-link :to="item.path">{{item.title}}</router-link>
+          <p @click="jump(item.path)">{{item.title}}</p>
         </div>
       </div>
       <div style="position: absolute; bottom: 0; width: 100%;">
         <div v-for="(item, index) in thirdList" :key="item.title + index" class="list list-bottom" @click="onCloseSidebar">
-          <router-link :to="item.path">{{item.title}}</router-link>
+          <p @click="jump(item.path)">{{item.title}}</p>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
         thirdList: [
           {title: 'Terms of Service', path: '/service'},
           {title: 'Privacy Policy', path: '/policy'},
-          {title: 'Typany© Inc.2018', path: '#'},
+          {title: 'Typany© Inc.2018', path: ''},
         ],
       }
     },
@@ -51,7 +51,16 @@
     methods: {
       onCloseSidebar() {
         this.$store.dispatch('COMMON_SetSidebarShow', false).then(() => {})
-      }
+      },
+
+      jump(path) {
+        if (!path)
+          return
+
+        this.$router.push({path: path})
+        if (this.$route.path === path)
+          location.reload()
+      },
     },
 
     created() {
@@ -101,7 +110,7 @@
       line-height: 40px;
       text-align: left;
       padding-left: 30px;
-      a {
+      p {
         text-decoration: none;
         color: #fff;
         font-family: Helvetica;

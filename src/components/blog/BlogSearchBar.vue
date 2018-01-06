@@ -87,7 +87,7 @@
     font-size: 20px;
 
     .search-i {
-      width: 90%;
+      width: 94%;
       margin: 0 auto;
       display: block;
       border: 1px solid #e3e3e3;
@@ -108,8 +108,8 @@
     .tag-list {
       position: absolute;
       margin: 0;
-      left: calc(5% - 1px);
-      right: calc(5% - 1px);
+      left: calc(3% - 1px);
+      right: calc(3% - 1px);
       padding: 0;
       border: 1px solid #e3e3e3;
       border-top: 0;
