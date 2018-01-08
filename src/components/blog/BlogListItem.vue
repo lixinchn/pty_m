@@ -58,10 +58,6 @@
     position: relative;
     cursor: pointer;
     margin: 10px 0;
-    &:hover {
-      bottom: 6px;
-      box-shadow: 3px 3px 32px #9d9d9d;
-    }
 
     .thumb {
       width: 100%;
