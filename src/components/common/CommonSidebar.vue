@@ -17,7 +17,7 @@
       </div>
       <div style="position: absolute; bottom: 0; width: 100%;">
         <div v-for="(item, index) in thirdList" :key="item.title + index" class="list list-bottom" @click="onCloseSidebar">
-          <p @click="jump(item.path)">{{item.title}}</p>
+          <p @click="jump(item.path)" style="color: rgba(255,255,255,0.2)">{{item.title}}</p>
         </div>
       </div>
     </div>
@@ -75,6 +75,13 @@
 </script>
 
 <style lang="scss" scoped>
+  @media (max-height: 600px) {
+    .list {
+      height: 25px !important;
+      line-height: 25px !important;
+    }
+  }
+
   .container {
     width: 100%;
     height: 100%;
