@@ -61,9 +61,20 @@
         if (this.$route.path === path)
           location.reload()
       },
+      handleScroll(e) {
+        if (this.sidebarShow) {
+          e.preventDefault()
+          e.returnValue = false
+        }
+      },
     },
 
     created() {
+      window.addEventListener('touchmove', this.handleScroll)
+    },
+
+    destroyed() {
+      window.removeEventListener('scroll', this.handleScroll)
     },
 
     computed: {
@@ -83,6 +94,7 @@
   }
 
   .container {
+    touch-action: none;
     width: 100%;
     height: 100%;
     position: fixed;

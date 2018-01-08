@@ -98,12 +98,11 @@
 
 <style lang="scss" scoped>
   .b-c-wrapper {
-    width: 100%;
     background: #f9f9f9;
     font-size: 16px;
     font-family: "Avenir Book";
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 10px;
 
     p {
       text-align: left;
@@ -141,8 +140,9 @@
       width: 133px;
       height: 40px;
       cursor: pointer;
-      margin: 30px auto 0 auto;
+      margin: 30px 5px 0 auto;
       background: url(/static/img/blog/btn.png) no-repeat;
+      float: right;
       &:active {
         background: url(/static/img/blog/btn-active.png);
       }
