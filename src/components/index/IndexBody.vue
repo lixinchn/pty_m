@@ -1,10 +1,10 @@
 <template>
-  <div class="b-wrapper">
+  <div class="b-wrapper" :style="autoStyle">
     <div class="content">
-      <p class="title">THE STORY</p>
-      <p class="title">POWERED BY YOU</p>
+      <p class="title">{{sliceInfo.title}}</p>
+      <!-- <p class="title">POWERED BY YOU</p> -->
       <div>
-        <p class="s-title">Express yourself without boundaries but Typany</p>
+        <p class="s-title">{{sliceInfo.subTitle}}</p>
         <a href="http://typany.com/api/go.php?id=3"><img src="/static/img/index/fb.png" style="vertical-align: middle;"></a>
       </div>
       <a href="http://typany.com/api/go.php?id=1" class="btn g-btn"></a>
@@ -19,16 +19,40 @@
     components: {},
     data () {
       return {
+        sliceInfo: {},
       }
     },
 
     methods: {
+      getSliceInfo() {
+        this.$store.dispatch('INDEX_GetSliceInfo').then((data) => {
+          if (data.code) {
+            this.$message.error('error: ' + data.msg)
+            return
+          }
+
+          // random pick one
+          console.log(data.data.list)
+          let index = (new Date().getTime()) % data.data.list.length
+          if (data.data.list && data.data.list[index])
+            this.sliceInfo = data.data.list[index]
+        })
+      }
     },
 
     created() {
+      this.getSliceInfo()
     },
 
     computed: {
+      autoStyle() {
+        let bgUrl = 'url(' + (this.sliceInfo.bgUrl || 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-index-bg.png') + ')'
+        return {
+          'background-image': bgUrl,
+          'background-repeat': 'no-repeat',
+          'background-size': '100% 100%',
+        }
+      }
     }
   }
 </script>
@@ -50,8 +74,6 @@
   .b-wrapper {
     width: 100%;
     height: 100%;
-    background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-index-bg.png) no-repeat;
-    background-size: 100% 100%;
 
     .content {
       text-align: left;

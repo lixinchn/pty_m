@@ -6,6 +6,7 @@ const getters = {
   closeVideoForm: state => state.contact.closeVideoForm,
   textareaVideoInfo: state => state.contact.textareaVideoInfo,
   closeImageForm: state => state.contact.closeImageForm,
+  sliceInfo: state => state.index.sliceInfo,
 }
 
 export default getters

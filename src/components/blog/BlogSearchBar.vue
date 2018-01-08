@@ -5,7 +5,7 @@
       <img class="search-btn" src="/static/img/blog/search.png" @click="onSearch(searchKeyText)">
       <ul class="tag-list" v-show="tagListShow">
         <li v-for="(item, index) in tagList" :key="index" @click="onSearch(item.title)">
-          {{item.title}}
+          {{item.title + '(' + (item.count || 0) + ')'}}
         </li>
       </ul>
     </div>

@@ -3,7 +3,7 @@
     <form v-model="commentForm" ref="commentForm">
       <p class="b-c-title">LEAVE A REPLY</p>
       <div class="b-c-split"></div>
-      <p style="margin: 32px 0 30px 0;">Your email address will not be published. Required fields are marked*</p>
+      <p style="margin: 32px 0 30px 5px;">Your email address will not be published. Required fields are marked*</p>
       <p class="b-c-label">Comment</p>
       <textarea style="height: 215px;" class="b-c-input" v-model="commentForm.comment"></textarea>
       <p class="b-c-label">Name*</p>
@@ -100,11 +100,15 @@
   .b-c-wrapper {
     width: 100%;
     background: #f9f9f9;
-    text-align: left;
     font-size: 16px;
     font-family: "Avenir Book";
     text-align: center;
     padding: 10px 0;
+
+    p {
+      text-align: left;
+      margin-left: 5px;
+    }
 
     .b-c-title {
     }

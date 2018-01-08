@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import common from './modules/common'
 import blog from './modules/blog'
+import index from './modules/index'
 import contact from './modules/contact'
 import getters from './getters'
 
@@ -13,6 +14,7 @@ const store = new Vuex.Store({
     common,
     blog,
     contact,
+    index,
   },
   getters,
 })
