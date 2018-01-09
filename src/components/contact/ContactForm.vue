@@ -224,9 +224,20 @@
         this.contactForm.images.splice(index, 1)
         this.contactForm.imagesLocation.splice(index, 1)
       },
+      handleScroll(e) {
+        if (this.dialogSubmitSucc || this.dialogDrop) {
+          e.preventDefault()
+          e.returnValue = false
+        }
+      },
     },
 
     created() {
+      window.addEventListener('touchmove', this.handleScroll)
+    },
+
+    destroyed() {
+      window.removeEventListener('touchmove', this.handleScroll)
     },
 
     computed: {

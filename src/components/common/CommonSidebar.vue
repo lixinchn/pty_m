@@ -74,7 +74,7 @@
     },
 
     destroyed() {
-      window.removeEventListener('scroll', this.handleScroll)
+      window.removeEventListener('touchmove', this.handleScroll)
     },
 
     computed: {
