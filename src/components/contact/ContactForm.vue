@@ -24,7 +24,8 @@
             :before-upload="beforeUpload"
             class="image-upload"
             :show-file-list="showFileList"
-            v-show="addImgBtnShow">
+            v-show="addImgBtnShow"
+            :style="autoStyleUpload">
             <img src="/static/img/contact/add-img.png" class="icon">
           </el-upload>
         </div>
@@ -127,11 +128,11 @@
       },
       beforeUpload(file) {
         const isValidType = ['image/jpeg', 'image/jpg', 'image/png'].indexOf(file.type) !== -1
-        const isLT5M = file.size / 1024 / 1024 < 5
+        const isLT2M = file.size / 1024 / 1024 < 2
 
         let reader = new FileReader()
         reader.onload = (e) => {
-          if (!isValidType || !isLT5M)
+          if (!isValidType || !isLT2M)
             return
           this.contactForm.images.push(e.target.result)
         }
@@ -139,9 +140,9 @@
 
         if (!isValidType)
           this.$message.error('Only JPG and PNG image supported')
-        else if (!isLT5M)
+        else if (!isLT2M)
           this.$message.error('Image size must less than 5MB')
-        return isValidType && isLT5M
+        return isValidType && isLT2M
       },
       onGetVideoInfo() {
         if (!this.url)
@@ -260,14 +261,21 @@
           height += 100
         
         let paddingTop = 5
-        // if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
-        //   paddingTop += 80
-        // else if (this.contactForm.images.length > 3)
-        //   paddingTop += 160
+        let paddingBottom = 10
+        if (this.minusBtnShow) {
+            paddingBottom += 160
+        } else {
+          if (this.contactForm.images.length > 0 && this.contactForm.images.length <= 3)
+            paddingBottom += 80
+          else if (this.contactForm.images.length > 3)
+            paddingBottom += 160
+        }
 
-        // if (this.youtubeVideoInfo.title)
-        //   paddingTop += 110
+        if (this.youtubeVideoInfo.title)
+          paddingBottom += 110
+
         style['padding-top'] = paddingTop + 'px'
+        style['padding-bottom'] = paddingBottom + 'px'
         style['height'] = height + 'px'
         return style
       },
@@ -317,6 +325,10 @@
           return {background: 'url(/static/img/contact/submit-gray.png) no-repeat', 'background-size': '100% 100%'}
         return {}
       },
+
+      autoStyleUpload() {
+        return this.contactForm.images.length >= 4 ? {left: '-4px'} : {}
+      },
     },
     watch: {
     }
@@ -337,7 +349,7 @@
       padding: 0 5px;
       margin-bottom: 20px;
       font-family: Helvetica;
-      color: #bcbcbc;
+      color: #000;
       &::placeholder {
         color: #bcbcbc;
       }
@@ -398,6 +410,7 @@
 
       .image-upload {
         display: inline-block;
+        position: relative;
       }
 
       .g-close {

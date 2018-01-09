@@ -31,6 +31,7 @@
 
     methods: {
       getBlogList() {
+        this.category = this.$route.query.category || 0
         const data = {cat: this.category, p: this.page}
         this.$store.dispatch('BLOG_GetBlogList', {data: createGetParams(data), p: this.page}).then((data) => {
           this.pending = false
