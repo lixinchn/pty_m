@@ -32,12 +32,17 @@
         <div class="video-form" v-show="videoFormShow">
           <p style="display: inline-block;">Add links from</p>
           <img src="/static/img/contact/youtube.png" style="width: 20px; float: right;">
-          <input placeholder="URL:" @change="onGetVideoInfo" v-model="url">
+          <input placeholder="URL:" @change="onGetVideoInfo" v-model="url" style="color: #000;">
         </div>
         <div class="loading" v-show="loadingShow"></div>
         <div class="video-info" v-show="videoInfoShow" :style="videoInfoAutoStyle">
-          <img :src="videoSrc">
-          <p>{{videoTitle}}</p>
+          <div v-show="videoTitle" style="height: 100%;">
+            <img :src="videoSrc">
+            <p style="height: 100%; overflow: hidden;">{{videoTitle}}</p>
+          </div>
+          <div v-show="!videoTitle" style="height: 100%; text-align: left; overflow: hidden; padding: 2px;">
+            <a :href="contactForm.video" target="blank">{{contactForm.video}}</a>
+          </div>
           <div class="v-close" @click="videoClose"></div>
         </div>
       </div>
@@ -152,11 +157,11 @@
         const data = {url: this.url}
         this.$store.dispatch('CONTACT_GetYoutubeVideoInfo', createGetParams(data)).then((data) => {
           this.loadingShow = false
+          this.contactForm.video = this.url
           if (data.code) {
-            this.$message.error('error: ' + data.status)
+            this.$message.error('error: ' + data.msg)
             return
           }
-          console.log(data)
         }).catch(err => {
           this.$message.error(err)
         })
@@ -204,6 +209,7 @@
           imagesLocation: [],
           video: '',
         }
+        this.url = ''
       },
 
       onSuccDialogClose() {
@@ -216,6 +222,7 @@
         this.$store.dispatch('CONTACT_ClearYoutubeVideoInfo').then(() => {
           this.dialogDrop = false
           this.url = ''
+          this.contactForm.video = ''
         })
       },
       videoClose() {
@@ -309,7 +316,7 @@
       },
 
       videoInfoShow() {
-        return this.youtubeVideoInfo.title
+        return this.youtubeVideoInfo.title || this.contactForm.video
       },
       videoSrc() {
         return this.youtubeVideoInfo.title ? this.youtubeVideoInfo.thumbnails.default.url : ''

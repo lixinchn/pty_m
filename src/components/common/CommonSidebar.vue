@@ -57,9 +57,13 @@
         if (!path)
           return
 
-        this.$router.push({path: path})
-        if (this.$route.path === path)
-          location.reload()
+        this.$store.dispatch('COMMON_SetSidebarShow', false).then(() => {
+          setTimeout(() => {
+            this.$router.push({path: path})
+            if (this.$route.path === path)
+              location.reload()
+          }, 100)
+        })
       },
       handleScroll(e) {
         if (this.sidebarShow) {
