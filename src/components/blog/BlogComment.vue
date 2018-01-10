@@ -13,7 +13,7 @@
       <p class="b-c-label">Facebook</p>
       <input type="text" style="" class="b-c-input" v-model="commentForm.facebook">
       <div style="width: 100%; overflow: auto;">
-        <div class="b-c-btn" @click="onSubmit"></div>
+        <div class="b-c-btn" @click="onSubmit">Post Comment</div>
       </div>
     </form>
   </div>
@@ -72,9 +72,8 @@
       },
 
       clearForm() {
-        Object.keys(this.commentForm).forEach(key => {
-          this.commentForm[key] = ''
-        })
+        this.commentForm.comment = ''
+        this.commentForm.facebook = ''
       },
 
       needCheck() {
@@ -139,12 +138,17 @@
     .b-c-btn {
       width: 133px;
       height: 40px;
+      line-height: 40px;
+      font-family: 'Myriad Pro', Myriad, Helvetica;
+      -webkit-user-select: none;
       cursor: pointer;
       margin: 30px 5px 0 auto;
-      background: url(/static/img/blog/btn.png) no-repeat;
+      background: #00a4fb;
       float: right;
+      border-radius: 4px;
+      color: #fff;
       &:active {
-        background: url(/static/img/blog/btn-active.png);
+        background: #008ddb;
       }
     }
   }

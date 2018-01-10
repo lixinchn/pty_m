@@ -32,7 +32,7 @@
         <div class="video-form" v-show="videoFormShow">
           <p style="display: inline-block;">Add links from</p>
           <img src="/static/img/contact/youtube.png" style="width: 20px; float: right;">
-          <input placeholder="URL:" @input="onGetVideoInfo" v-model="url" style="color: #000;">
+          <input placeholder="URL:" @input="onGetVideoInfo" v-model="url" style="color: #000;" class="video-input">
         </div>
         <div class="loading" v-show="loadingShow"></div>
         <div class="video-info" v-show="videoInfoShow" :style="videoInfoAutoStyle">
@@ -396,7 +396,7 @@
       * {
         display: inline-block;
         font-size: 22px;
-        font-family: 'MyriadPro Regular';
+        font-family: 'Myriad Pro', Myriad, Helvetica;
         color: #454545;
       }
 
@@ -576,6 +576,12 @@
         &:active {
           background: #e2e2e2;
         }
+      }
+    }
+
+    .video-input {
+      &::placeholder {
+        color: #bcbcbc;
       }
     }
   }
