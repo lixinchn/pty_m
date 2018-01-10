@@ -3,7 +3,7 @@
     <div class="content">
       <p class="title">{{sliceInfo.title}}</p>
       <!-- <p class="title">POWERED BY YOU</p> -->
-      <div>
+      <div style="margin: 14px 0;">
         <p class="s-title">{{sliceInfo.subTitle}}</p>
         <a href="http://typany.com/api/go.php?id=3"><img src="/static/img/index/fb.png" style="vertical-align: middle;"></a>
       </div>
@@ -67,6 +67,7 @@
 
       .s-title {
         font-size: 10px !important;
+        max-width: 85% !important;
       }
     }
   }
@@ -98,6 +99,9 @@
         font-size: 14px;
         color: #fff;
         display: inline-block;
+        overflow: hidden;
+        max-width: 90%;
+        margin: 0;
       }
 
       .btn {

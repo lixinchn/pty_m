@@ -146,7 +146,7 @@
         if (!isValidType)
           this.$message.error('Only JPG and PNG image supported')
         else if (!isLT2M)
-          this.$message.error('Image size must less than 5MB')
+          this.$message.error('Image size must less than 2MB')
         return isValidType && isLT2M
       },
       onGetVideoInfo() {
@@ -191,8 +191,10 @@
             return
           }
           console.log(data)
-          this.dialogSubmitSucc = true
-          this.refreshContactForm()
+          this.$store.dispatch('CONTACT_ClearYoutubeVideoInfo').then(() => {
+            this.dialogSubmitSucc = true
+            this.refreshContactForm()
+          })
         })
       },
 
