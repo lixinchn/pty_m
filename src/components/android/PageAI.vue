@@ -3,7 +3,8 @@
     <lazy-component>
       <img v-lazy="typingGif" style="width: 95%; min-height: 500px;">
     </lazy-component>
-    <a href="http://typany.com/api/go.php?id=1"><img src="/static/img/android/mobilesite-andriod_05.png" style="width: 100%;"></a>
+    <a href="http://typany.com/api/go.php?id=1" class="google-play"></a>
+    <p style="font-size: 36px; margin: 20px 0; color: #40415f;">A.I. TYPING</p>
     <el-row>
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_07.png">
@@ -57,6 +58,20 @@
       font-size: 14px;
       color: #40415f;
       margin: 0;
+    }
+
+    .google-play {
+      width: 207px;
+      height: 56px;
+      background: url(/static/img/android/google-play.png) no-repeat;
+      background-size: 200%;
+      margin: 20px auto;
+      display: block;
+
+      &:active {
+        background-position: -208px 0;
+        background-size: 200%;
+      }
     }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 100%;">
+    <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 100%; min-height: 500px;">
     <p style="font-size: 36px; margin: 20px 0;">INNOVATION</p>
     <el-row>
       <el-col :span="8" style="padding: 0 8px;">
@@ -61,13 +61,13 @@
       width: 241px;
       height: 65px;
       background: url(/static/img/ios/app-store.png) no-repeat;
-      background-size: 100% 100%;
+      background-size: 200%;
       margin: 20px auto;
       display: block;
 
       &:active {
-        background: url(/static/img/ios/app-store-active.png) no-repeat;
-        background-size: 100% 100%;
+        background-position: -241px 0;
+        background-size: 200%;
       }
     }
   }

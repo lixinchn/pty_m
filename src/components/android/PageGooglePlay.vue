@@ -31,14 +31,14 @@ export default {
     width: 290px;
     height: 94px;
     background: url(/static/img/android/google-play.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 200%;
     display: block;
     position: absolute; left: 0; top: 0; right: 0; bottom: 0;
     margin: auto;
 
     &:active {
-      background: url(/static/img/android/google-play-active.png) no-repeat;
-      background-size: 100% 100%;
+      background-position: -290px 0;
+      background-size: 200%;
     }
   }
 </style>

@@ -72,6 +72,12 @@
     }
   }
 
+  @media (max-width: 330px) {
+    .btn {
+      display: block !important;
+    }
+  }
+
   .b-wrapper {
     width: 100%;
     height: 100%;
@@ -105,26 +111,26 @@
       }
 
       .btn {
-        height: 53px;
-        width: 150px;
+        height: 61px;
+        width: 172px;
         display: inline-block;
       }
 
       .g-btn {
         background: url(/static/img/index/google-play.png) no-repeat;
-        background-size: 100% 100%;
+        background-size: 200%;
         &:active {
-          background: url(/static/img/index/google-play-active.png);
-          background-size: 100% 100%;
+          background-position: -172px 0;
+          background-size: 200%
         }
       }
 
       .a-btn {
         background: url(/static/img/index/app-store.png) no-repeat;
-        background-size: 100% 100%;
+        background-size: 200%;
         &:active {
-          background: url(/static/img/index/app-store-active.png);
-          background-size: 100% 100%;
+          background-position: -172px 0;
+          background-size: 200%
         }
       }
     }

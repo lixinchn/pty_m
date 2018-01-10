@@ -32,7 +32,7 @@
         <div class="video-form" v-show="videoFormShow">
           <p style="display: inline-block;">Add links from</p>
           <img src="/static/img/contact/youtube.png" style="width: 20px; float: right;">
-          <input placeholder="URL:" @change="onGetVideoInfo" v-model="url" style="color: #000;">
+          <input placeholder="URL:" @input="onGetVideoInfo" v-model="url" style="color: #000;">
         </div>
         <div class="loading" v-show="loadingShow"></div>
         <div class="video-info" v-show="videoInfoShow" :style="videoInfoAutoStyle">
@@ -73,8 +73,8 @@
       <div class="d-d-back">
         <img src="/static/img/contact/drop-question.png" style="margin-top: 40px;">
         <p>Drop upload video</p>
-        <div class="d-d-btn d-d-btn-yes" @click="onDropYes"></div>
-        <div class="d-d-btn d-d-btn-no" @click="onDropClose"></div>
+        <div class="d-d-btn d-d-btn-yes" @click="onDropYes" style="color: #fff;">YES</div>
+        <div class="d-d-btn d-d-btn-no" @click="onDropClose" style="color: #000;">NO</div>
         <div class="c-i-f-close" @click="onDropClose"></div>
       </div>
     </el-dialog>
@@ -510,13 +510,13 @@
       width: 120px;
       height: 40px;
       background: url(/static/img/contact/submit.png) no-repeat;
-      background-size: 100% 100%;
+      background-size: 200%;
       margin-bottom: 20px;
       float: right;
 
       &:active {
-        background: url(/static/img/contact/submit-active.png) no-repeat;
-        background-size: 100% 100%;
+        background-position: -120px 0;
+        background-size: 200%;
       }
     }
 
@@ -558,21 +558,23 @@
       .d-d-btn {
         width: 87px;
         height: 40px;
+        line-height: 40px;
         cursor: pointer;
         display: inline-block;
         margin-top: 25px;
+        border-radius: 4px;
       }
       .d-d-btn-yes {
         margin-right: 24px;
-        background: url(/static/img/contact/drop-yes.png) no-repeat;
+        background: #1ba1fc;
         &:active {
-          background: url(/static/img/contact/drop-yes-active.png);
+          background: #168bdc;
         }
       }
       .d-d-btn-no {
-        background: url(/static/img/contact/drop-no.png) no-repeat;
+        background: #efefef;
         &:active {
-          background: url(/static/img/contact/drop-no-active.png);
+          background: #e2e2e2;
         }
       }
     }
