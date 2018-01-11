@@ -66,7 +66,6 @@
       }
 
       .s-title {
-        font-size: 10px !important;
         max-width: 85% !important;
       }
     }
@@ -74,7 +73,6 @@
 
   @media (max-width: 330px) {
     .btn {
-      display: block !important;
     }
   }
 
@@ -111,8 +109,8 @@
       }
 
       .btn {
-        height: 61px;
-        width: 172px;
+        height: 51px;
+        width: 142px;
         display: inline-block;
       }
 
@@ -120,7 +118,7 @@
         background: url(/static/img/index/google-play.png) no-repeat;
         background-size: 200%;
         &:active {
-          background-position: -172px 0;
+          background-position: -142px 0;
           background-size: 200%
         }
       }
@@ -129,7 +127,7 @@
         background: url(/static/img/index/app-store.png) no-repeat;
         background-size: 200%;
         &:active {
-          background-position: -172px 0;
+          background-position: -142px 0;
           background-size: 200%
         }
       }

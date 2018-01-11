@@ -173,6 +173,7 @@
       minusBtnClick() {
         this.addBtnShow = true
         this.minusBtnShow = false
+        this.url = '' // 2018-01-11 应然说点击减号需要清空输入框中的内容
       },
       onSubmit() {
         if (!this.contactForm.name || !this.contactForm.email)

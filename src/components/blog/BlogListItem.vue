@@ -49,6 +49,12 @@
 </script>
 
 <style lang="scss" scoped>
+  @media (max-width: 330px) {
+    .bucket {
+      max-width: 35px !important;
+    }
+  }
+
   .wrapper {
     display: inline-block;
     width: 48%;

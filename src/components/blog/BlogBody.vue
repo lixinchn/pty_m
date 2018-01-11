@@ -52,7 +52,8 @@
         this.$store.dispatch('BLOG_SearchByKey', {data: createGetParams(data), p: this.keyPage}).then((data) => {
           this.pending = false
           if (data.code) {
-            this.$message.error('error: ' + data.status)
+            this.$message.error('error: ' + data.msg)
+            this.noMoreBlog = true
             return
           }
           console.log(data)
