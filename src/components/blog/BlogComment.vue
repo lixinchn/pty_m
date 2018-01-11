@@ -62,7 +62,7 @@
             return
           }
           this.$message({
-            message: 'TODO',
+            message: 'Success',
             type: 'success'
           })
           this.clearForm()
