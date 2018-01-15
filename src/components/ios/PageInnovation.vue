@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 100%; min-height: 500px;">
+    <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 80%; min-height: 200px;">
     <p style="font-size: 36px; margin: 20px 0;">INNOVATION</p>
     <el-row>
       <el-col :span="8" style="padding: 0 8px;">
@@ -44,7 +44,7 @@
   .wrapper {
     width: 100%;
     background: url(http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-ios-innovation-bg.png) no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 70%;
     margin-bottom: 40px;
 
     p {

@@ -24,7 +24,7 @@
     components: {},
     data () {
       return {
-        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-android.gif?t=' + Date.now()
+        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-android.gif?t=' + Date.now()
       }
     },
 
