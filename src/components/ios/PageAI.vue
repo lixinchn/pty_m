@@ -4,7 +4,7 @@
     <lazy-component>
       <img v-lazy="typingGif" style="width: 100%;">
     </lazy-component>
-    <p style="font-size: 36px; margin: 20px 0;">A.I. TYPING</p>
+    <p style="font-size: 26px; margin: 20px 0;">A.I. TYPING</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_41.png">

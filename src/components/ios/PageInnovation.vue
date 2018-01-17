@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <img src="/static/img/ios/mobilesite-ios2_03.png" style="width: 80%; min-height: 200px;">
-    <p style="font-size: 36px; margin: 20px 0;">INNOVATION</p>
+    <p style="font-size: 26px; margin: 20px 0;">INNOVATION</p>
     <el-row>
       <el-col :span="8" style="padding: 0 8px;">
         <img src="/static/img/ios/mobilesite-ios2_07.png">

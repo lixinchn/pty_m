@@ -4,7 +4,7 @@
       <img v-lazy="typingGif" style="width: 95%; min-height: 500px;">
     </lazy-component>
     <a href="http://typany.com/api/go.php?id=1" class="google-play"></a>
-    <p style="font-size: 36px; margin: 20px 0; color: #40415f;">A.I. TYPING</p>
+    <p style="font-size: 26px; margin: 20px 0; color: #40415f;">A.I. TYPING</p>
     <el-row>
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_07.png">

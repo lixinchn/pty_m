@@ -4,7 +4,7 @@
       <img v-lazy="expGif" style="width: 100%; background: url(/static/img/android/bg2.png) no-repeat;
         background-size: 100% 100%;">
     </lazy-component>
-    <p style="font-size: 36px; margin: 20px 0;">EXPRESSION</p>
+    <p style="font-size: 26px; margin: 20px 0;">EXPRESSION</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_19.png">
@@ -24,7 +24,7 @@
     components: {},
     data () {
       return {
-        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-android.gif?t=' + Date.now()
+        expGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-android-mobile.gif?t=' + Date.now()
       }
     },
 

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <img src="/static/img/android/mobilesite-andriod_34.png" style="width: 100%;">
-    <p style="font-size: 36px; margin: 20px 0; color: #fff;">EFFICIENCY</p>
+    <p style="font-size: 26px; margin: 20px 0; color: #fff;">EFFICIENCY</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_37.png" style="width: 52px;">

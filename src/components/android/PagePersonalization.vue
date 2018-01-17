@@ -2,7 +2,7 @@
   <div class="wrapper">
     <img src="/static/img/android/mobilesite-andriod_25.png" style="width: 100%; background: url(/static/img/android/bg3.png) no-repeat;
     background-size: 100% 100%;">
-    <p style="font-size: 36px; margin: 20px 0;">PERSONALIZATION</p>
+    <p style="font-size: 26px; margin: 20px 0;">PERSONALIZATION</p>
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_28.png">
