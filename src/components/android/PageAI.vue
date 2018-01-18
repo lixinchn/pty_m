@@ -1,11 +1,15 @@
 <template>
   <div class="wrapper">
     <lazy-component>
-      <img v-lazy="typingGif" style="width: 95%; min-height: 500px;">
+      <img v-lazy="typingGif" style="width: 70%; min-height: 300px;">
     </lazy-component>
     <a href="http://typany.com/api/go.php?id=1" class="google-play"></a>
     <p style="font-size: 26px; margin: 20px 0; color: #40415f;">A.I. TYPING</p>
     <el-row>
+      <el-col :span="8" style="padding: 0 6px;">
+        <img src="/static/img/ios/ai-mobile.png">
+        <p>Powerful Translator & Smart Voice Input</p>
+      </el-col>
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_07.png">
         <p>Intelligent AutoCorrect and Prediction</p>
@@ -13,10 +17,6 @@
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_09.png">
         <p>Intelligent Word-Learning</p>
-      </el-col>
-      <el-col :span="8" style="padding: 0 6px;">
-        <img src="/static/img/android/mobilesite-andriod_11.png">
-        <p>Smart Voice Input & Powerful Translator</p>
       </el-col>
     </el-row>
   </div>
@@ -71,6 +71,11 @@
       &:active {
         background-position: -208px 0;
         background-size: 200%;
+      }
+
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_android_g_top&action=click);
+        display: none;
       }
     }
   }

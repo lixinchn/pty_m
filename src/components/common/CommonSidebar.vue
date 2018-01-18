@@ -43,7 +43,7 @@
         thirdList: [
           {title: 'Terms of Service', path: '/service'},
           {title: 'Privacy Policy', path: '/policy'},
-          {title: 'Typany© Inc.2018', path: ''},
+          {title: '© 2018 TYPANY®', path: ''},
         ],
       }
     },
@@ -104,6 +104,11 @@
     position: fixed;
     right: 0; top: 0;
     z-index: 1000;
+
+    &::after {
+      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_head_handle&action=click);
+      display: none;
+    }
 
     .left-side, .right-side {
       width: 50%;

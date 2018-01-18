@@ -69,6 +69,11 @@
         background-position: -241px 0;
         background-size: 200%;
       }
+
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_ios_a_top&action=click);
+        display: none;
+      }
     }
   }
 </style>

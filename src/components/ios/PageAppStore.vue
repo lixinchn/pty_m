@@ -40,5 +40,10 @@ export default {
       background-position: -290px 0;
       background-size: 200%;
     }
+
+    &:active::after {
+      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_ios_a_bottom&action=click);
+      display: none;
+    }
   }
 </style>

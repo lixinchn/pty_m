@@ -28,3 +28,7 @@ input, textarea {
   border-radius: 0;
   padding: 0;
 }
+
+.blog-content img {
+  max-width: 100%;
+}

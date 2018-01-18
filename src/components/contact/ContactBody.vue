@@ -2,11 +2,11 @@
   <div class="contact-wrapper">
     <div class="split"></div>
     <div class="c-banner-wrapper">
-      <a v-for="(banner, index) in banners" :key="index" :href="banner.href"><img :src="'/static/img/contact/' + banner.img"></a>
+      <a v-for="(banner, index) in banners" :key="index" :href="banner.href" :class="banner.class"><img :src="'/static/img/contact/' + banner.img"></a>
     </div>
     <div class="c-content-wrapper">
       <p style="font-size: 24px; margin-bottom: 16px;">Join our community</p>
-      <p style="margin-bottom: 5px; text-align: left;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner, explore what we can do together, let us know in the form below.</p>
+      <p style="margin-bottom: 5px;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner, explore what we can do together, let us know in the form below.</p>
     </div>
     <contact-form :width="width"></contact-form>
   </div>
@@ -26,9 +26,9 @@
     },
     data () {
       return {
-        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com'},
-                  {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com'},
-                  {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ'}],
+        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com', class: 'c-b-p'},
+                  {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com', class: 'c-h-s'},
+                  {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ', class: 'c-c'}],
       }
     },
 
@@ -70,6 +70,26 @@
       p {
         margin: 0;
         font-size: 18px;
+      }
+    }
+
+    .c-b-p {
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_b_p&action=click);
+        display: none;
+      }
+    }
+    
+    .c-h-s {
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_h_s&action=click);
+        display: none;
+      }
+    }
+    .c-c {
+      &:active::after {
+        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_c&action=click);
+        display: none;
       }
     }
   }

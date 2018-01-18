@@ -1,25 +1,27 @@
 <template>
   <div class="b-wrapper" :style="autoStyle">
     <div class="content">
-      <p class="title">{{sliceInfo.title}}</p>
+      <pre class="title">{{indexSliceInfo.title}}</pre>
       <!-- <p class="title">POWERED BY YOU</p> -->
       <div style="margin: 14px 0;">
-        <p class="s-title">{{sliceInfo.subTitle}}</p>
-        <a href="http://typany.com/api/go.php?id=3"><img src="/static/img/index/fb.png" style="vertical-align: middle;"></a>
+        <pre class="s-title">{{indexSliceInfo.subTitle}}</pre>
+        <a href="http://typany.com/api/go.php?id=3" class="b-fb"><img src="/static/img/index/fb.png" style="vertical-align: top;"></a>
       </div>
-      <a href="http://typany.com/api/go.php?id=1" class="btn g-btn"></a>
-      <a href="http://typany.com/api/go.php?id=2" class="btn a-btn"></a>
+      <div style="text-align: center;">
+        <a href="http://typany.com/api/go.php?id=1" class="btn g-btn"></a>
+        <a href="http://typany.com/api/go.php?id=2" class="btn a-btn"></a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   export default {
     name: 'index-body',
     components: {},
     data () {
       return {
-        sliceInfo: {},
       }
     },
 
@@ -32,10 +34,9 @@
           }
 
           // random pick one
-          console.log(data.data.list)
-          let index = (new Date().getTime()) % data.data.list.length
-          if (data.data.list && data.data.list[index])
-            this.sliceInfo = data.data.list[index]
+          // let index = (new Date().getTime()) % data.data.list.length
+          // if (data.data.list && data.data.list[index])
+          //   this.indexSliceInfo = data.data.list[index]
         })
       }
     },
@@ -46,13 +47,16 @@
 
     computed: {
       autoStyle() {
-        let bgUrl = 'url(' + (this.sliceInfo.bgUrl || 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/m-index-bg.png') + ')'
+        let bgUrl = 'url(' + (this.indexSliceInfo.bgUrl) + ')'
         return {
           'background-image': bgUrl,
           'background-repeat': 'no-repeat',
           'background-size': '100% 100%',
         }
-      }
+      },
+      ...mapGetters([
+        'indexSliceInfo',
+      ]),
     }
   }
 </script>
@@ -73,6 +77,8 @@
 
   @media (max-width: 330px) {
     .btn {
+      height: 48px !important;
+      width: 130px !important;
     }
   }
 
@@ -81,15 +87,15 @@
     height: 100%;
 
     .content {
+      width: 90%;
       text-align: left;
-      overflow: hidden;
       white-space: nowrap;
+      overflow: hidden;
       transform: translate(-50%, -50%);
       position: absolute;
       top: 50%;
       left: 50%;
       max-width: 95%;
-
 
       .title {
         font-family: 'Avenir Light';
@@ -121,6 +127,10 @@
           background-position: -142px 0;
           background-size: 200%
         }
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_g&action=click);
+          display: none;
+        }
       }
 
       .a-btn {
@@ -129,6 +139,17 @@
         &:active {
           background-position: -142px 0;
           background-size: 200%
+        }
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_a&action=click);
+          display: none;
+        }
+      }
+
+      .b-fb {
+        &:active::after {
+          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_fb&action=click);
+          display: none;
         }
       }
     }

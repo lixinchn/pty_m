@@ -19,4 +19,17 @@ const store = new Vuex.Store({
   getters,
 })
 
+window.onorientationchange = () => {
+  switch (window.orientation) {
+    case -90:
+    case 90:
+      console.log('横屏')
+      break
+    case 0:
+    case 180:
+      console.log('竖屏')
+      break
+  }
+}
+
 export default store

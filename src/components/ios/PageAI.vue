@@ -6,11 +6,15 @@
     </lazy-component>
     <p style="font-size: 26px; margin: 20px 0;">A.I. TYPING</p>
     <el-row style="padding: 0 20px;">
-      <el-col :span="12" style="padding: 0 15px;">
+      <el-col :span="8" style="padding: 0 6px;">
+        <img src="/static/img/ios/ai-mobile.png">
+        <p>Powerful Translator & Smart Voice Input</p>
+      </el-col>
+      <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/ios/mobilesite-ios2_41.png">
         <p>Intelligent AutoCorrect and Prediction</p>
       </el-col>
-      <el-col :span="12" style="padding: 0 15px;">
+      <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/ios/mobilesite-ios2_43.png">
         <p>Intelligent Word-Learning</p>
       </el-col>

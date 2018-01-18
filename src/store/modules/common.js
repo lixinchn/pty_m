@@ -1,4 +1,4 @@
-const contact = {
+const common = {
   state: {
     sidebarShow: false,
   },
@@ -18,4 +18,4 @@ const contact = {
   }
 }
 
-export default contact
+export default common
