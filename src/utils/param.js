@@ -3,6 +3,7 @@ export function createGetParams(data) {
   Object.keys(data).forEach(key => {
     arrParams.push(key + '=' + encodeURIComponent(data[key]))
   })
+  arrParams.push('from=m')
   return arrParams.join('&')
 }
 

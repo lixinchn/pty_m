@@ -16,6 +16,11 @@ service.interceptors.request.use(config => {
     // config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     // config.headers['Content-Type'] = 'multipart/form-data'
     // config.headers['Access-Control-Allow-Origin'] = 'http://10.129.20.82:8080'
+    if (!config.data.includes('from=m'))
+      config.data += '&from=m'
+  } else if (config.method.toLowerCase() === 'get') {
+    if (!config.url.includes('from=m'))
+      config.url += '?from=m'
   }
   return config
 }, error => {
