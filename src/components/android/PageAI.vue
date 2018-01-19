@@ -7,7 +7,7 @@
     <p style="font-size: 26px; margin: 20px 0; color: #40415f;">A.I. TYPING</p>
     <el-row>
       <el-col :span="8" style="padding: 0 6px;">
-        <img src="/static/img/ios/ai-mobile.png">
+        <img src="/static/img/android/ai-mobile-android.png">
         <p>Powerful Translator & Smart Voice Input</p>
       </el-col>
       <el-col :span="8" style="padding: 0 6px;">
