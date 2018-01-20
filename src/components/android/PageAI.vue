@@ -74,7 +74,7 @@
       }
 
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_android_g_top&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=m_android_g_top&action=click);
         display: none;
       }
     }

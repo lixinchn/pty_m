@@ -176,13 +176,14 @@
         this.url = '' // 2018-01-11 应然说点击减号需要清空输入框中的内容
       },
       onSubmit() {
-        if (!this.contactForm.name || !this.contactForm.email)
+        if (!this.contactForm.name || !this.contactForm.email || !this.emailCheck())
           return
 
         const data = {
           name: this.contactForm.name,
           email: this.contactForm.email,
           res: this.contactForm.comment,
+          occ: this.contactForm.occupation,
           pics: paramArrayToString(this.contactForm.imagesLocation),
           video: this.contactForm.video,
         }
@@ -240,6 +241,10 @@
           e.preventDefault()
           e.returnValue = false
         }
+      },
+      emailCheck() {
+        const canSubmit = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.contactForm.email)
+        return canSubmit
       },
     },
 
@@ -331,7 +336,7 @@
         return this.minusBtnShow
       },
       autoStyleSubmitBtn() {
-        if (!this.contactForm.name || !this.contactForm.email)
+        if (!this.contactForm.name || !this.contactForm.email || !this.emailCheck())
           return {background: 'url(/static/img/contact/submit-gray.png) no-repeat', 'background-size': '100% 100%'}
         return {}
       },

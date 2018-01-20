@@ -75,20 +75,20 @@
 
     .c-b-p {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_b_p&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=m_contact_b_p&action=click);
         display: none;
       }
     }
     
     .c-h-s {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_h_s&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=m_contact_h_s&action=click);
         display: none;
       }
     }
     .c-c {
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_contact_c&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=m_contact_c&action=click);
         display: none;
       }
     }

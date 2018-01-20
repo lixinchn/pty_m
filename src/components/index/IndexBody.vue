@@ -128,7 +128,7 @@
           background-size: 200%
         }
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_g&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=m_index_g&action=click);
           display: none;
         }
       }
@@ -141,14 +141,14 @@
           background-size: 200%
         }
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_a&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=m_index_a&action=click);
           display: none;
         }
       }
 
       .b-fb {
         &:active::after {
-          content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_fb&action=click);
+          content: url(http://typany.com/api/pingback.php?loc=m_index_fb&action=click);
           display: none;
         }
       }

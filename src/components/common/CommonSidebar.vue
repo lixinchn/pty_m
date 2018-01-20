@@ -106,7 +106,7 @@
     z-index: 1000;
 
     &::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_head_handle&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_head_handle&action=click);
       display: none;
     }
 
@@ -160,56 +160,56 @@
 
   .c-logo {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_logo&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_logo&action=click);
       display: none;
     }
   }
 
   .c-ios {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_ios&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_ios&action=click);
       display: none;
     }
   }
 
   .c-android {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_android&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_android&action=click);
       display: none;
     }
   }
 
   .c-about {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_about&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_about&action=click);
       display: none;
     }
   }
 
   .c-blog {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_blog&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_blog&action=click);
       display: none;
     }
   }
 
   .c-contact {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_contact&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_contact&action=click);
       display: none;
     }
   }
 
   .c-service {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_service&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_service&action=click);
       display: none;
     }
   }
 
   .c-policy {
     &:active::after {
-      content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_side_policy&action=click);
+      content: url(http://typany.com/api/pingback.php?loc=m_side_policy&action=click);
       display: none;
     }
   }

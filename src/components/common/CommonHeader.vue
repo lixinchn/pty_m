@@ -52,7 +52,7 @@
       display: inline-block;
 
       &:active::after {
-        content: url(http://typanyweb.global.ime.sogou.com/web.gif?loc=m_index_logo&action=click);
+        content: url(http://typany.com/api/pingback.php?loc=m_index_logo&action=click);
         display: none;
       }
     }
