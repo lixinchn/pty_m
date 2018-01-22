@@ -14,6 +14,7 @@ const index = {
       let index = (new Date().getTime()) % sliceInfo.length
       if (sliceInfo && sliceInfo[index])
         state.indexSliceInfo = sliceInfo[index]
+      state.indexSliceInfo.title = state.indexSliceInfo.title.replace('\\n', '\n')
     }
   },
 
