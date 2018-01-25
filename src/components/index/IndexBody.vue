@@ -3,7 +3,7 @@
     <div class="content">
       <pre class="title">{{indexSliceInfo.title}}</pre>
       <!-- <p class="title">POWERED BY YOU</p> -->
-      <div style="margin: 14px 0;">
+      <div style="margin: 14px 0; text-align: center;">
         <pre class="s-title">{{indexSliceInfo.subTitle}}</pre>
         <a href="http://typany.com/api/go.php?id=3" class="b-fb"><img src="/static/img/index/fb.png" style="vertical-align: top;"></a>
       </div>
@@ -102,6 +102,7 @@
         font-size: 35px;
         color: #fff;
         margin: 0;
+        text-align: center;
       }
 
       .s-title {
