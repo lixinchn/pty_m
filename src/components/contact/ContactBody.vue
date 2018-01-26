@@ -26,8 +26,8 @@
     },
     data () {
       return {
-        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany.overseas@gmail.com', class: 'c-b-p'},
-                  {img: 'contact-banner-2.png', href: 'mailto:typany2016@gmail.com', class: 'c-h-s'},
+        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany_press@sogou-inc.com', class: 'c-b-p'},
+                  {img: 'contact-banner-2.png', href: 'mailto:typany_keyboard@sogou-inc.com', class: 'c-h-s'},
                   {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ', class: 'c-c'}],
       }
     },
