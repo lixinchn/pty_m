@@ -26,7 +26,8 @@
     },
     data () {
       return {
-        banners: [{img: 'contact-banner-1.png', href: 'mailto:typany_press@sogou-inc.com', class: 'c-b-p'},
+        banners: [{img: 'contact-banner-bus.png', href: 'mailto:typany_bd@sogou-inc.com', class: 'c-b-b'},
+                  {img: 'contact-banner-press.png', href: 'mailto:typany_press@sogou-inc.com', class: 'c-b-p'},
                   {img: 'contact-banner-2.png', href: 'mailto:typany_keyboard@sogou-inc.com', class: 'c-h-s'},
                   {img: 'contact-banner-3.png', href: 'https://www.surveymonkey.com/r/B7GNSFZ', class: 'c-c'}],
       }
@@ -70,6 +71,22 @@
       p {
         margin: 0;
         font-size: 18px;
+      }
+    }
+
+    .c-b-b, .c-b-p {
+      display: inline-block;
+      width: 48%;
+    }
+
+    .c-b-b {
+      margin-right: 4%;
+    }
+
+    .c-b-b {
+      &:active::after {
+        content: url(http://typany.com/api/pingback.php?loc=m_contact_b_b&action=click);
+        display: none;
       }
     }
 

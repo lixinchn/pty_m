@@ -24,7 +24,7 @@
     components: {},
     data () {
       return {
-        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-ios-mobile.gif?t=' + Date.now()
+        typingGif: 'http://d2ezgnxmilyqe4.cloudfront.net/media/index/expression-new-ios-mobile.gif'
       }
     },
 
