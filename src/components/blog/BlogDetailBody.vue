@@ -61,6 +61,7 @@
     }
     .content-wrapper {
       overflow: auto;
+      text-align: left;
 
       .blog-content {
         overflow: hidden;
