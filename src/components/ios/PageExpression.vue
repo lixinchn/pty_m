@@ -8,7 +8,7 @@
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_32.png">
-        <p>Discover the world of pop culture - memes, TV, Movies, Music and more</p>
+        <p>Discover the World of Pop Culture - Memes, TV, Movies, Music and More</p>
       </el-col>
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_26-34.png" style="width: 64px;">

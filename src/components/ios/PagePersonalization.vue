@@ -6,11 +6,11 @@
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_23.png">
-        <p>DIY Your Own Keyboard with the Favorite Photo, Wallpaper</p>
+        <p>Build Your Own Keyboard with Your Favorite Photos and Wallpapers</p>
       </el-col>
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/ios/mobilesite-ios2_25.png">
-        <p>A variety of Fine Collected Themes, Be Clarity and Stylish</p>
+        <p>A variety Stylish and Clear Themes</p>
       </el-col>
     </el-row>
   </div>

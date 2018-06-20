@@ -6,7 +6,7 @@
     <el-row style="padding: 0 20px;">
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_28.png">
-        <p>DIY Your Own Keyboard with the Favorite Photo, Wallpaper</p>
+        <p>Build Your Own Keyboard with Your Favorite Photos and Wallpapers</p>
       </el-col>
       <el-col :span="12" style="padding: 0 15px;">
         <img src="/static/img/android/mobilesite-andriod_30.png">

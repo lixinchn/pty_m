@@ -6,7 +6,7 @@
     </div>
     <div class="c-content-wrapper">
       <p style="font-size: 24px; margin-bottom: 16px;">Join our community</p>
-      <p style="margin-bottom: 5px;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner, explore what we can do together, let us know in the form below.</p>
+      <p style="margin-bottom: 5px;">Is this the begining of a beautiful friendship? If you'd like to become a Typany partner and explore what we can do together, let us know in the form below.</p>
     </div>
     <contact-form :width="width"></contact-form>
   </div>

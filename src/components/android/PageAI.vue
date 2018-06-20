@@ -12,7 +12,7 @@
       </el-col>
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_07.png">
-        <p>Intelligent AutoCorrect and Prediction</p>
+        <p>Intelligent Autocorrect and Word Prediction</p>
       </el-col>
       <el-col :span="8" style="padding: 0 6px;">
         <img src="/static/img/android/mobilesite-andriod_09.png">
